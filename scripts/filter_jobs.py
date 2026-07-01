@@ -99,6 +99,7 @@ def classify_job(job: dict[str, Any], rules: dict[str, Any]) -> dict[str, Any]:
     reject_reasons: list[str] = []
     match_reasons: list[str] = []
     warnings: list[str] = []
+    warnings.extend(job.get("sourceWarnings", job.get("source_warnings", [])) or [])
 
     accepted_cities = {
         comparable_text(city): city for city in rules["accepted_cities"]

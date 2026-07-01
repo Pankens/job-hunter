@@ -1,34 +1,47 @@
 {
-  "schema_version": 1,
-  "active_sources": [],
+  "schema_version": 2,
+  "active_sources": [
+    "infojobs"
+  ],
   "sources": {
     "infojobs": {
-      "enabled": false,
-      "mode": "official_api_or_permitted_endpoint",
+      "enabled": true,
+      "mode": "official_api",
       "priority": "primary",
-      "queries": [
-        "desarrollador",
-        "frontend",
-        "backend",
-        "informática",
-        "diseño web",
-        "general"
-      ],
+      "api_url": "https://api.infojobs.net/api/9/offer",
       "cities": [
         "Valencia",
         "Paterna",
         "Burjassot"
-      ]
+      ],
+      "searches": [
+        {
+          "name": "general",
+          "query": null
+        },
+        {
+          "name": "technical",
+          "query": "(programacion desarrollador \"desarrollo web\" informatica IT frontend backend \"diseño web\" UX UI)"
+        },
+        {
+          "name": "skills",
+          "query": "(Java HTML CSS SCSS Figma JavaScript TypeScript Vue Angular MongoDB MySQL)"
+        }
+      ],
+      "since_date": "_7_DAYS",
+      "max_results_per_page": 50,
+      "max_pages_per_search": 3,
+      "timeout_seconds": 20
     },
     "indeed": {
       "enabled": false,
-      "mode": "experimental",
+      "mode": "not_implemented",
       "priority": "secondary",
       "queries": []
     },
     "linkedin": {
       "enabled": false,
-      "mode": "unsupported_in_v1",
+      "mode": "unsupported",
       "reason": "Sin scraping directo ni importación manual."
     }
   }

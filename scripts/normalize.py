@@ -19,6 +19,19 @@ def comparable_text(value: Any) -> str:
     return "".join(char for char in text if not unicodedata.combining(char))
 
 
+def _published_at(raw: dict[str, Any], generated_at: datetime) -> datetime:
+    value = raw.get("published_at")
+    if value:
+        try:
+            parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return parsed.astimezone(timezone.utc)
+        except ValueError:
+            pass
+    return generated_at - timedelta(hours=float(raw.get("published_hours_ago", 0)))
+
+
 def normalize_job(raw: dict[str, Any], generated_at: datetime) -> dict[str, Any]:
     source = comparable_text(raw.get("source")) or "unknown"
     source_id = _clean(raw.get("source_id"))
@@ -26,7 +39,7 @@ def normalize_job(raw: dict[str, Any], generated_at: datetime) -> dict[str, Any]
         [source, source_id, comparable_text(raw.get("title")), comparable_text(raw.get("company"))]
     )
     job_id = f"{source}-{hashlib.sha1(stable_seed.encode()).hexdigest()[:12]}"
-    published_at = generated_at - timedelta(hours=float(raw.get("published_hours_ago", 0)))
+    published_at = _published_at(raw, generated_at)
 
     return {
         "id": job_id,
@@ -44,6 +57,9 @@ def normalize_job(raw: dict[str, Any], generated_at: datetime) -> dict[str, Any]
         "hasCommission": bool(raw.get("has_commission", False)),
         "publishedAt": published_at.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
         "url": _clean(raw.get("url")) or "#",
+        "sourceWarnings": [
+            _clean(warning) for warning in raw.get("source_warnings", []) if _clean(warning)
+        ],
     }
 
 

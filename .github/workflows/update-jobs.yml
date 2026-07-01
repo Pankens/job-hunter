@@ -25,6 +25,9 @@ jobs:
           python-version: "3.12"
 
       - name: Generate static jobs data
+        env:
+          INFOJOBS_CLIENT_ID: ${{ secrets.INFOJOBS_CLIENT_ID }}
+          INFOJOBS_CLIENT_SECRET: ${{ secrets.INFOJOBS_CLIENT_SECRET }}
         run: python scripts/export_jobs.py
 
       - name: Commit updated data
@@ -36,5 +39,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add web/src/data/jobs.json
-          git commit -m "chore(data): refresh mock jobs"
+          git commit -m "chore(data): refresh jobs"
           git push

@@ -2,9 +2,9 @@
 
 Panel personal de ofertas de empleo construido con Vue 3 y datos JSON estáticos.
 
-Esta primera iteración es deliberadamente local y reproducible: usa ofertas mock para
-probar la interfaz y el pipeline de datos. **Todavía no realiza scraping ni peticiones a
-InfoJobs, Indeed, LinkedIn u otras fuentes.**
+La fuente principal es la API oficial de InfoJobs. Si no hay credenciales o la fuente
+falla, el pipeline utiliza ofertas mock para mantener la web disponible. **No realiza
+scraping.**
 
 ## Qué incluye
 
@@ -12,6 +12,8 @@ InfoJobs, Indeed, LinkedIn u otras fuentes.**
 - Filtros por antigüedad, ciudad, tipo y fuente.
 - Estado local de ofertas aplicadas y descartadas manualmente.
 - Pipeline Python para normalizar, deduplicar, filtrar y exportar datos.
+- Integración con la API oficial de búsqueda de InfoJobs.
+- Fallback automático a datos mock.
 - Configuración editable de búsquedas y reglas de exclusión.
 - Automatizaciones de actualización y despliegue en GitHub Pages.
 
@@ -50,8 +52,9 @@ También puede ejecutarse directamente:
 python scripts/export_jobs.py
 ```
 
-La salida se escribe en `web/src/data/jobs.json`. El archivo de entrada mock está en
-`data/mock/source_jobs.json`.
+La salida se escribe en `web/src/data/jobs.json`. Consulta
+[`docs/SOURCES.md`](docs/SOURCES.md) para configurar las credenciales de InfoJobs.
+El fallback está en `data/mock/source_jobs.json`.
 
 ## Comandos
 
@@ -60,24 +63,26 @@ La salida se escribe en `web/src/data/jobs.json`. El archivo de entrada mock est
 | `npm run dev` | Inicia el frontend en modo desarrollo |
 | `npm run build` | Genera la web de producción en `dist/` |
 | `npm run preview` | Previsualiza el build |
-| `npm run jobs:export` | Ejecuta el pipeline mock en Python |
+| `npm run jobs:export` | Ejecuta el pipeline InfoJobs → JSON, con fallback mock |
 
 ## Pipeline de datos
 
 ```text
-data/mock/source_jobs.json
+InfoJobs API o data/mock/source_jobs.json
         ↓ normalizar
         ↓ deduplicar
         ↓ aplicar config/filter_rules.json
 web/src/data/jobs.json
 ```
 
-Los valores `published_hours_ago` de los mocks se convierten en fechas ISO relativas
-al momento de exportación. Esto permite probar siempre los filtros de 24 h a 7 días.
+Las fechas RFC 3339 de InfoJobs se conservan en UTC. Los valores
+`published_hours_ago` del fallback se convierten en fechas ISO relativas al momento
+de exportación.
 
 Los módulos están separados por responsabilidad:
 
 - `scripts/normalize.py`: transforma fuentes heterogéneas al modelo común.
+- `scripts/sources/infojobs.py`: consulta y adapta la API oficial de InfoJobs.
 - `scripts/deduplicate.py`: elimina duplicados por fuente/id y huella de contenido.
 - `scripts/filter_jobs.py`: clasifica ofertas y registra motivos de descarte.
 - `scripts/export_jobs.py`: coordina el pipeline y escribe el JSON final.
@@ -87,8 +92,8 @@ Cada oferta exportada incluye `status`, `reject_reasons`, `match_reasons`,
 alimentar el panel secundario.
 
 `config/filter_rules.json` contiene ubicaciones, términos excluidos, habilidades y la
-regla de comisiones. `config/searches.json` reserva la configuración de futuras
-integraciones, actualmente deshabilitadas.
+regla de comisiones. `config/searches.json` define ciudades, consultas, paginación y
+fuentes activas.
 
 ## Estado local
 
@@ -98,8 +103,9 @@ no se sincronizan ni se publican en el repositorio.
 
 ## GitHub Actions
 
-- `update-jobs.yml`: ejecución manual y cada seis horas. En V1 regenera los mocks y
-  solo crea un commit si cambia `jobs.json`.
+- `update-jobs.yml`: ejecución manual y cada seis horas. Consulta InfoJobs con
+  credenciales de GitHub Secrets, usa el fallback si es necesario y solo crea un
+  commit si cambia `jobs.json`.
 - `deploy-pages.yml`: compila y publica la web en GitHub Pages al actualizar `main` o
   mediante ejecución manual.
 
@@ -107,13 +113,9 @@ Para desplegar, selecciona **GitHub Actions** como origen en
 **Settings → Pages → Build and deployment**. Si el repositorio no se llama
 `job-hunter`, el workflow calcula automáticamente la ruta base a partir de su nombre.
 
-## Alcance y próximos pasos
+## Alcance
 
-No se ha implementado scraping real. La siguiente iteración puede incorporar primero
-InfoJobs mediante API oficial o endpoints expresamente permitidos y tratar Indeed como
-fuente experimental. LinkedIn queda fuera de V1, tanto por scraping como por
-importación manual.
-
-Antes de activar una fuente real conviene revisar sus términos, límites de uso,
-autenticación y política de almacenamiento. Las credenciales deberán vivir en GitHub
-Secrets, nunca en el repositorio.
+InfoJobs está implementado mediante su API oficial. Indeed todavía no está
+implementado y LinkedIn queda fuera del alcance, tanto por scraping como por
+importación manual. Las credenciales viven en variables de entorno o GitHub Secrets,
+nunca en el repositorio.
