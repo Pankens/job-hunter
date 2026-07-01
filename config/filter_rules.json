@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "accepted_cities": [
+    "Valencia",
+    "Paterna",
+    "Burjassot"
+  ],
+  "technical_terms": [
+    "programación",
+    "desarrollo web",
+    "informática",
+    "it",
+    "frontend",
+    "backend",
+    "diseño web",
+    "ux",
+    "ui",
+    "java",
+    "html",
+    "css",
+    "scss",
+    "figma",
+    "javascript",
+    "typescript",
+    "vue",
+    "angular",
+    "mongodb",
+    "mysql"
+  ],
+  "rejected_terms": {
+    "employment_model": [
+      "autónomo",
+      "cuenta propia",
+      "freelance",
+      "contrato mercantil"
+    ],
+    "mobility": [
+      "carnet de conducir b",
+      "vehículo propio"
+    ],
+    "disability": [
+      "certificado de discapacidad",
+      "discapacidad obligatoria"
+    ],
+    "training": [
+      "contrato de formación",
+      "prácticas",
+      "beca"
+    ],
+    "sales": [
+      "venta fría",
+      "puerta fría",
+      "captación en calle",
+      "trabajo en la calle",
+      "solo comisiones",
+      "altas comisiones"
+    ]
+  },
+  "allowed_required_languages": [
+    "español",
+    "inglés"
+  ],
+  "commission_rule": {
+    "minimum_clear_base_salary_eur_month": 800
+  }
+}

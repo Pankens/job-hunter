@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "active_sources": [],
+  "sources": {
+    "infojobs": {
+      "enabled": false,
+      "mode": "official_api_or_permitted_endpoint",
+      "priority": "primary",
+      "queries": [
+        "desarrollador",
+        "frontend",
+        "backend",
+        "informática",
+        "diseño web",
+        "general"
+      ],
+      "cities": [
+        "Valencia",
+        "Paterna",
+        "Burjassot"
+      ]
+    },
+    "indeed": {
+      "enabled": false,
+      "mode": "experimental",
+      "priority": "secondary",
+      "queries": []
+    },
+    "linkedin": {
+      "enabled": false,
+      "mode": "unsupported_in_v1",
+      "reason": "Sin scraping directo ni importación manual."
+    }
+  }
+}
