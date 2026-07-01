@@ -39,17 +39,17 @@ const sourceLabel = computed(() => {
 
     <div class="tag-list">
       <span class="tag">{{ job.type === 'technical' ? 'Técnica' : 'General' }}</span>
-      <span v-for="skill in job.matchedSkills" :key="skill" class="tag tag--skill">
+      <span v-for="skill in job.matched_skills" :key="skill" class="tag tag--skill">
         {{ skill }}
       </span>
     </div>
 
     <p v-if="job.salaryText" class="job-card__salary">{{ job.salaryText }}</p>
 
-    <div v-if="discarded && job.rejectionReasons.length" class="rejection-box">
+    <div v-if="discarded && job.reject_reasons.length" class="rejection-box">
       <strong>Motivo de descarte</strong>
       <ul>
-        <li v-for="reason in job.rejectionReasons" :key="reason">{{ reason }}</li>
+        <li v-for="reason in job.reject_reasons" :key="reason">{{ reason }}</li>
       </ul>
     </div>
 

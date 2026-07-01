@@ -32,7 +32,12 @@ def export_jobs() -> dict[str, Any]:
     rules = read_json(RULES_INPUT)
 
     normalized = normalize_jobs(raw_jobs, generated_at)
-    unique = deduplicate_jobs(normalized)
+    unique = deduplicate_jobs(
+        normalized,
+        description_similarity_threshold=rules["deduplication"][
+            "description_similarity_threshold"
+        ],
+    )
     jobs = filter_jobs(unique, rules)
     jobs.sort(key=lambda job: job["publishedAt"], reverse=True)
 
@@ -41,7 +46,9 @@ def export_jobs() -> dict[str, Any]:
         "generatedAt": generated_at.isoformat().replace("+00:00", "Z"),
         "mode": "mock",
         "summary": {
+            "input": len(raw_jobs),
             "total": len(jobs),
+            "duplicatesRemoved": len(normalized) - len(unique),
             "valid": sum(job["valid"] for job in jobs),
             "discarded": sum(not job["valid"] for job in jobs),
         },

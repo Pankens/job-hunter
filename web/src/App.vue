@@ -62,7 +62,7 @@ const discardedJobs = computed(() =>
     .filter((job) => !job.valid || userState.discarded[job.id])
     .map((job) =>
       userState.discarded[job.id]
-        ? { ...job, rejectionReasons: ['Descartada manualmente'] }
+        ? { ...job, reject_reasons: ['Descartada manualmente'] }
         : job,
     )
     .filter(isVisibleByFilters),

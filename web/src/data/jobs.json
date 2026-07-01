@@ -1,9 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-01T17:21:57Z",
+  "generatedAt": "2026-07-01T18:00:41Z",
   "mode": "mock",
   "summary": {
+    "input": 10,
     "total": 10,
+    "duplicatesRemoved": 0,
     "valid": 7,
     "discarded": 3
   },
@@ -22,10 +24,10 @@
       "salaryText": "24.000€ – 30.000€ brutos/año",
       "salaryBaseEurMonth": 2000,
       "hasCommission": false,
-      "publishedAt": "2026-07-01T11:21:57Z",
+      "publishedAt": "2026-07-01T12:00:41Z",
       "url": "https://www.infojobs.net/",
       "type": "technical",
-      "matchedSkills": [
+      "matched_skills": [
         "frontend",
         "html",
         "css",
@@ -33,7 +35,13 @@
         "figma"
       ],
       "valid": true,
-      "rejectionReasons": []
+      "status": "valid",
+      "reject_reasons": [],
+      "match_reasons": [
+        "Ubicación admitida: Valencia",
+        "Coincide con el perfil técnico: frontend, html, css, scss, figma"
+      ],
+      "warnings": []
     },
     {
       "id": "infojobs-d6f77b6b0c03",
@@ -49,15 +57,22 @@
       "salaryText": "Altas comisiones",
       "salaryBaseEurMonth": null,
       "hasCommission": true,
-      "publishedAt": "2026-07-01T05:21:57Z",
+      "publishedAt": "2026-07-01T06:00:41Z",
       "url": "https://www.infojobs.net/",
       "type": "general",
-      "matchedSkills": [],
+      "matched_skills": [],
       "valid": false,
-      "rejectionReasons": [
-        "Exige carnet de conducir o vehículo propio",
-        "Venta o captación en calle / comisiones sin base clara"
-      ]
+      "status": "rejected",
+      "reject_reasons": [
+        "Exige carnet de conducir B o vehículo propio: vehículo propio",
+        "Venta fría, captación o trabajo en la calle: venta fría, captación en calle",
+        "Comisiones sin salario base claro de al menos 800 €/mes"
+      ],
+      "match_reasons": [
+        "Ubicación admitida: Valencia",
+        "Oferta general sin requisitos técnicos específicos"
+      ],
+      "warnings": []
     },
     {
       "id": "infojobs-d44711df9e41",
@@ -73,12 +88,21 @@
       "salaryText": "1.100€ brutos/mes + comisiones",
       "salaryBaseEurMonth": 1100,
       "hasCommission": true,
-      "publishedAt": "2026-06-30T21:21:57Z",
+      "publishedAt": "2026-06-30T22:00:41Z",
       "url": "https://www.infojobs.net/",
       "type": "general",
-      "matchedSkills": [],
+      "matched_skills": [],
       "valid": true,
-      "rejectionReasons": []
+      "status": "valid",
+      "reject_reasons": [],
+      "match_reasons": [
+        "Ubicación admitida: Valencia",
+        "Comisiones admitidas con salario base de 1100 €/mes",
+        "Oferta general sin requisitos técnicos específicos"
+      ],
+      "warnings": [
+        "La oferta incluye una parte variable o comisiones"
+      ]
     },
     {
       "id": "infojobs-6ae5ac61d757",
@@ -94,16 +118,22 @@
       "salaryText": "22.000€ brutos/año",
       "salaryBaseEurMonth": 1833,
       "hasCommission": false,
-      "publishedAt": "2026-06-30T13:21:57Z",
+      "publishedAt": "2026-06-30T14:00:41Z",
       "url": "https://www.infojobs.net/",
       "type": "technical",
-      "matchedSkills": [
+      "matched_skills": [
         "informática",
         "it",
         "mysql"
       ],
       "valid": true,
-      "rejectionReasons": []
+      "status": "valid",
+      "reject_reasons": [],
+      "match_reasons": [
+        "Ubicación admitida: Paterna",
+        "Coincide con el perfil técnico: informática, it, mysql"
+      ],
+      "warnings": []
     },
     {
       "id": "indeed-f4d3244a0d44",
@@ -119,18 +149,27 @@
       "salaryText": "Según convenio",
       "salaryBaseEurMonth": 700,
       "hasCommission": false,
-      "publishedAt": "2026-06-30T07:21:57Z",
+      "publishedAt": "2026-06-30T08:00:41Z",
       "url": "https://es.indeed.com/",
       "type": "technical",
-      "matchedSkills": [
+      "matched_skills": [
+        "desarrollador",
         "desarrollo web",
         "html",
         "css",
         "javascript"
       ],
       "valid": false,
-      "rejectionReasons": [
-        "Contrato de formación, prácticas o beca"
+      "status": "rejected",
+      "reject_reasons": [
+        "Contrato de formación, prácticas o beca: prácticas"
+      ],
+      "match_reasons": [
+        "Ubicación admitida: Paterna",
+        "Coincide con el perfil técnico: desarrollador, desarrollo web, html, css, javascript"
+      ],
+      "warnings": [
+        "Indeed está configurada como fuente experimental"
       ]
     },
     {
@@ -147,12 +186,20 @@
       "salaryText": "1.350€ brutos/mes",
       "salaryBaseEurMonth": 1350,
       "hasCommission": false,
-      "publishedAt": "2026-06-29T20:21:57Z",
+      "publishedAt": "2026-06-29T21:00:41Z",
       "url": "https://es.indeed.com/",
       "type": "general",
-      "matchedSkills": [],
+      "matched_skills": [],
       "valid": true,
-      "rejectionReasons": []
+      "status": "valid",
+      "reject_reasons": [],
+      "match_reasons": [
+        "Ubicación admitida: Burjassot",
+        "Oferta general sin requisitos técnicos específicos"
+      ],
+      "warnings": [
+        "Indeed está configurada como fuente experimental"
+      ]
     },
     {
       "id": "infojobs-76aaff115eff",
@@ -171,14 +218,20 @@
       "salaryText": "1.400€ brutos/mes",
       "salaryBaseEurMonth": 1400,
       "hasCommission": false,
-      "publishedAt": "2026-06-29T11:21:57Z",
+      "publishedAt": "2026-06-29T12:00:41Z",
       "url": "https://www.infojobs.net/",
       "type": "general",
-      "matchedSkills": [],
+      "matched_skills": [],
       "valid": false,
-      "rejectionReasons": [
-        "Idioma obligatorio no admitido: alemán"
-      ]
+      "status": "rejected",
+      "reject_reasons": [
+        "Idioma obligatorio distinto de español o inglés: alemán"
+      ],
+      "match_reasons": [
+        "Ubicación admitida: Burjassot",
+        "Oferta general sin requisitos técnicos específicos"
+      ],
+      "warnings": []
     },
     {
       "id": "infojobs-ff1245b0fbaf",
@@ -194,10 +247,10 @@
       "salaryText": "28.000€ – 34.000€ brutos/año",
       "salaryBaseEurMonth": 2333,
       "hasCommission": false,
-      "publishedAt": "2026-06-28T19:21:57Z",
+      "publishedAt": "2026-06-28T20:00:41Z",
       "url": "https://www.infojobs.net/",
       "type": "technical",
-      "matchedSkills": [
+      "matched_skills": [
         "frontend",
         "backend",
         "java",
@@ -205,7 +258,13 @@
         "mysql"
       ],
       "valid": true,
-      "rejectionReasons": []
+      "status": "valid",
+      "reject_reasons": [],
+      "match_reasons": [
+        "Ubicación admitida: Valencia",
+        "Coincide con el perfil técnico: frontend, backend, java, angular, mysql"
+      ],
+      "warnings": []
     },
     {
       "id": "indeed-7cbbd91e5d98",
@@ -221,10 +280,10 @@
       "salaryText": "25.000€ brutos/año",
       "salaryBaseEurMonth": 2083,
       "hasCommission": false,
-      "publishedAt": "2026-06-27T03:21:57Z",
+      "publishedAt": "2026-06-27T04:00:41Z",
       "url": "https://es.indeed.com/",
       "type": "technical",
-      "matchedSkills": [
+      "matched_skills": [
         "ux",
         "ui",
         "html",
@@ -232,7 +291,15 @@
         "figma"
       ],
       "valid": true,
-      "rejectionReasons": []
+      "status": "valid",
+      "reject_reasons": [],
+      "match_reasons": [
+        "Ubicación admitida: Valencia",
+        "Coincide con el perfil técnico: ux, ui, html, css, figma"
+      ],
+      "warnings": [
+        "Indeed está configurada como fuente experimental"
+      ]
     },
     {
       "id": "indeed-ebd84a975d5f",
@@ -248,12 +315,20 @@
       "salaryText": "1.300€ brutos/mes",
       "salaryBaseEurMonth": 1300,
       "hasCommission": false,
-      "publishedAt": "2026-06-23T19:21:57Z",
+      "publishedAt": "2026-06-23T20:00:41Z",
       "url": "https://es.indeed.com/",
       "type": "general",
-      "matchedSkills": [],
+      "matched_skills": [],
       "valid": true,
-      "rejectionReasons": []
+      "status": "valid",
+      "reject_reasons": [],
+      "match_reasons": [
+        "Ubicación admitida: Valencia",
+        "Oferta general sin requisitos técnicos específicos"
+      ],
+      "warnings": [
+        "Indeed está configurada como fuente experimental"
+      ]
     }
   ]
 }

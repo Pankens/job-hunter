@@ -21,6 +21,14 @@ InfoJobs, Indeed, LinkedIn u otras fuentes.**
 - npm 10 o superior.
 - Python 3.10 o superior (sin dependencias externas).
 
+El pipeline no tiene dependencias externas. Para ejecutar los tests se instala
+únicamente pytest:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
+```
+
 ## Desarrollo local
 
 ```bash
@@ -73,6 +81,10 @@ Los módulos están separados por responsabilidad:
 - `scripts/deduplicate.py`: elimina duplicados por fuente/id y huella de contenido.
 - `scripts/filter_jobs.py`: clasifica ofertas y registra motivos de descarte.
 - `scripts/export_jobs.py`: coordina el pipeline y escribe el JSON final.
+
+Cada oferta exportada incluye `status`, `reject_reasons`, `match_reasons`,
+`warnings` y `matched_skills`. Las rechazadas siguen presentes en el JSON para
+alimentar el panel secundario.
 
 `config/filter_rules.json` contiene ubicaciones, términos excluidos, habilidades y la
 regla de comisiones. `config/searches.json` reserva la configuración de futuras

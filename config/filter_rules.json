@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "accepted_cities": [
     "Valencia",
     "Paterna",
@@ -7,11 +7,15 @@
   ],
   "technical_terms": [
     "programación",
+    "desarrollador",
+    "desarrolladora",
     "desarrollo web",
     "informática",
     "it",
     "frontend",
     "backend",
+    "fullstack",
+    "full stack",
     "diseño web",
     "ux",
     "ui",
@@ -30,37 +34,98 @@
   "rejected_terms": {
     "employment_model": [
       "autónomo",
+      "autónoma",
+      "régimen de autónomos",
+      "alta en autónomos",
       "cuenta propia",
       "freelance",
-      "contrato mercantil"
+      "contrato mercantil",
+      "relación mercantil"
     ],
     "mobility": [
       "carnet de conducir b",
-      "vehículo propio"
+      "carnet b",
+      "permiso de conducir b",
+      "permiso b",
+      "vehículo propio",
+      "coche propio"
     ],
     "disability": [
       "certificado de discapacidad",
-      "discapacidad obligatoria"
+      "discapacidad obligatoria",
+      "discapacidad igual o superior"
     ],
     "training": [
       "contrato de formación",
+      "contrato formativo",
+      "contrato en prácticas",
+      "en prácticas",
       "prácticas",
-      "beca"
+      "beca",
+      "becario",
+      "becaria"
     ],
-    "sales": [
+    "street_sales": [
       "venta fría",
       "puerta fría",
       "captación en calle",
+      "captación a pie de calle",
+      "captación de socios en calle",
+      "comercial a pie de calle",
+      "promotor en calle",
+      "promotora en calle",
       "trabajo en la calle",
-      "solo comisiones",
-      "altas comisiones"
+      "puesto en la calle",
+      "puestos en la calle"
     ]
   },
-  "allowed_required_languages": [
-    "español",
-    "inglés"
-  ],
+  "language_rule": {
+    "allowed_required_languages": [
+      "español",
+      "castellano",
+      "inglés"
+    ],
+    "known_other_languages": [
+      "alemán",
+      "francés",
+      "italiano",
+      "portugués",
+      "valenciano",
+      "catalán",
+      "neerlandés",
+      "holandés",
+      "chino",
+      "japonés",
+      "ruso",
+      "árabe"
+    ],
+    "mandatory_markers": [
+      "obligatorio",
+      "obligatoria",
+      "imprescindible",
+      "requisito",
+      "nivel b2",
+      "nivel c1",
+      "nivel c2"
+    ]
+  },
   "commission_rule": {
-    "minimum_clear_base_salary_eur_month": 800
+    "minimum_clear_base_salary_eur_month": 800,
+    "indicators": [
+      "comisión",
+      "comisiones",
+      "salario variable",
+      "retribución variable"
+    ],
+    "always_rejected_terms": [
+      "solo comisiones",
+      "únicamente comisiones",
+      "exclusivamente comisiones",
+      "sin salario fijo",
+      "sin sueldo fijo"
+    ]
+  },
+  "deduplication": {
+    "description_similarity_threshold": 0.82
   }
 }
