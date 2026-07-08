@@ -84,10 +84,31 @@ se imprimen métricas claras:
 - número de ofertas descartadas
 - si se usó fallback mock y por qué
 
+Además, `web/src/data/jobs.json` guarda `sourceStatus.sourceLogs` con una entrada
+por URL consultada:
+
+- URL exacta
+- status HTTP
+- `Content-Type`
+- tamaño de respuesta en bytes
+- primeros 300 caracteres recibidos
+- si se detectó RSS/Atom válido
+- número de items parseados
+- motivo del rechazo cuando no es RSS válido
+
+Para depurar la fuente sin regenerar `jobs.json`:
+
+```powershell
+python scripts/debug_infojobs_rss.py
+```
+
+Este diagnóstico imprime las mismas URLs y metadatos en consola. Si InfoJobs
+responde HTML en vez de RSS, quedará visible en el preview.
+
 ### Fallback
 
-Si los feeds fallan, devuelven XML no válido o no recuperan ninguna oferta, el
-exportador usa `data/mock/source_jobs.json`. El JSON final lo indica en
+Si los feeds fallan, devuelven HTML en vez de RSS, XML no válido o no recuperan
+ninguna oferta, el exportador usa `data/mock/source_jobs.json`. El JSON final lo indica en
 `sourceStatus`:
 
 ```json

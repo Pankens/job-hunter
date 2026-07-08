@@ -378,7 +378,7 @@ def fetch_infojobs_rss_jobs(
                 }
             )
         except InfoJobsSourceError as error:
-            message = f"{feed['search']} · {feed['city']}: {error} · {feed['url']}"
+            message = f"{feed['search']} · {feed['city']}: {error}"
             errors.append(message)
             if log is not None:
                 log["reason"] = str(error)
