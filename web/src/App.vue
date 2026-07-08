@@ -111,7 +111,7 @@ function formatGeneratedAt(value) {
           <span>job-hunter</span>
         </a>
         <span class="mock-badge">
-          {{ jobsData.mode === 'live' ? 'InfoJobs · Live' : 'Modo mock · fallback' }}
+          {{ jobsData.mode === 'live' ? 'InfoJobs · RSS' : 'Modo mock · fallback' }}
         </span>
       </nav>
 
@@ -230,7 +230,7 @@ function formatGeneratedAt(value) {
 
     <footer>
       <span>
-        {{ jobsData.mode === 'live' ? 'Datos de InfoJobs API' : 'Datos mock · Sin scraping real' }}
+        {{ jobsData.mode === 'live' ? 'Datos de InfoJobs RSS' : 'Datos mock · Sin scraping real' }}
       </span>
       <span>Actualizado {{ formatGeneratedAt(jobsData.generatedAt) }}</span>
     </footer>

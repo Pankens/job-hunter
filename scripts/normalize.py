@@ -6,6 +6,7 @@ import hashlib
 import re
 import unicodedata
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from typing import Any
 
 
@@ -28,7 +29,13 @@ def _published_at(raw: dict[str, Any], generated_at: datetime) -> datetime:
                 parsed = parsed.replace(tzinfo=timezone.utc)
             return parsed.astimezone(timezone.utc)
         except ValueError:
-            pass
+            try:
+                parsed = parsedate_to_datetime(str(value))
+                if parsed.tzinfo is None:
+                    parsed = parsed.replace(tzinfo=timezone.utc)
+                return parsed.astimezone(timezone.utc)
+            except (TypeError, ValueError):
+                pass
     return generated_at - timedelta(hours=float(raw.get("published_hours_ago", 0)))
 
 

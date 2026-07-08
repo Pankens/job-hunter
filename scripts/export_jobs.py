@@ -1,4 +1,4 @@
-"""Genera el JSON estático desde InfoJobs o desde el fallback mock."""
+"""Genera el JSON estático desde InfoJobs RSS o desde el fallback mock."""
 
 from __future__ import annotations
 
@@ -28,35 +28,67 @@ def read_json(path: Path) -> Any:
         return json.load(file)
 
 
+def _mock_status(requested: str, warning: str, *, fallback: bool) -> dict[str, Any]:
+    return {
+        "requested": requested,
+        "requestedLabel": "InfoJobs RSS" if requested == "infojobs" else "Mock",
+        "used": "mock",
+        "sourceLabel": "Mock",
+        "fallback": fallback,
+        "warning": warning,
+        "feedsConsulted": 0,
+        "offersObtained": 0,
+        "sourceErrors": [],
+    }
+
+
+def _fallback_status_from_error(error: InfoJobsSourceError) -> dict[str, Any]:
+    stats = getattr(error, "stats", None)
+    if stats is None:
+        return _mock_status("infojobs", str(error), fallback=True)
+    return {
+        "requested": "infojobs",
+        "requestedLabel": "InfoJobs RSS",
+        "used": "mock",
+        "sourceLabel": "Mock",
+        "fallback": True,
+        "warning": str(error),
+        "feedsConsulted": stats.feeds_consulted,
+        "offersObtained": stats.offers_obtained,
+        "sourceErrors": stats.errors,
+    }
+
+
 def load_raw_jobs(searches: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """Carga la fuente activa y degrada a mocks ante cualquier fallo recuperable."""
     infojobs = searches["sources"]["infojobs"]
     if infojobs.get("enabled") and "infojobs" in searches.get("active_sources", []):
         try:
-            raw_jobs = fetch_infojobs_jobs(infojobs)
+            raw_jobs, stats = fetch_infojobs_jobs(infojobs)
             if not raw_jobs:
-                raise InfoJobsSourceError("InfoJobs no devolvió ofertas para las búsquedas configuradas")
+                raise InfoJobsSourceError(
+                    "InfoJobs RSS no devolvió ofertas para las búsquedas configuradas"
+                )
             return raw_jobs, {
                 "requested": "infojobs",
+                "requestedLabel": "InfoJobs RSS",
                 "used": "infojobs",
+                "sourceLabel": stats.source,
                 "fallback": False,
                 "warning": None,
+                "feedsConsulted": stats.feeds_consulted,
+                "offersObtained": stats.offers_obtained,
+                "sourceErrors": stats.errors,
             }
         except InfoJobsSourceError as error:
             fallback = read_json(MOCK_INPUT)
-            return fallback, {
-                "requested": "infojobs",
-                "used": "mock",
-                "fallback": True,
-                "warning": str(error),
-            }
+            return fallback, _fallback_status_from_error(error)
 
-    return read_json(MOCK_INPUT), {
-        "requested": "mock",
-        "used": "mock",
-        "fallback": False,
-        "warning": "InfoJobs está deshabilitado en config/searches.json",
-    }
+    return read_json(MOCK_INPUT), _mock_status(
+        "mock",
+        "InfoJobs RSS está deshabilitado en config/searches.json",
+        fallback=False,
+    )
 
 
 def export_jobs() -> dict[str, Any]:
@@ -99,10 +131,17 @@ def export_jobs() -> dict[str, Any]:
 if __name__ == "__main__":
     result = export_jobs()
     status = result["sourceStatus"]
-    suffix = f" (fallback: {status['warning']})" if status["fallback"] else ""
-    print(
-        f"Exportación {result['mode']} completada: "
-        f"{result['summary']['valid']} válidas, "
-        f"{result['summary']['discarded']} descartadas{suffix} -> "
-        f"{OUTPUT.relative_to(ROOT)}"
-    )
+    summary = result["summary"]
+    print(f"Fuente intentada: {status['requestedLabel']}")
+    print(f"Fuente usada: {status['sourceLabel']}")
+    print(f"Feeds consultados: {status['feedsConsulted']}")
+    print(f"Ofertas obtenidas: {status['offersObtained']}")
+    print(f"Ofertas válidas: {summary['valid']}")
+    print(f"Ofertas descartadas: {summary['discarded']}")
+    if status["fallback"]:
+        print(f"Mock fallback: sí ({status['warning']})")
+    else:
+        print("Mock fallback: no")
+    if status.get("sourceErrors"):
+        print(f"Avisos de fuente: {len(status['sourceErrors'])}")
+    print(f"Exportación {result['mode']} completada -> {OUTPUT.relative_to(ROOT)}")

@@ -2,82 +2,93 @@
 
 ## InfoJobs
 
-InfoJobs es la primera fuente real del proyecto. La integración usa exclusivamente
-la API oficial de búsqueda de ofertas; no realiza scraping.
+En V1, InfoJobs es la fuente principal mediante feeds/RSS públicos de búsqueda.
+No se usa scraping de páginas de detalle y no hacen falta credenciales.
 
-Documentación oficial:
-
-- [Portal para desarrolladores](https://developer.infojobs.net/)
-- [Guía de inicio](https://developer.infojobs.net/documentation/quick-start/index.xhtml)
-- [Autenticación de aplicaciones](https://developer.infojobs.net/documentation/app-auth/index.xhtml)
-- [Búsqueda de ofertas](https://developer.infojobs.net/documentation/operation/offer-list-9.xhtml)
-
-### Obtener credenciales
-
-1. Inicia sesión en el portal de desarrolladores de InfoJobs.
-2. Registra una aplicación.
-3. Copia el **Client ID** y el **Client secret** de la aplicación.
-
-La búsqueda de ofertas es una operación pública respecto al usuario: no necesita
-OAuth ni acceso al CV. InfoJobs sí exige que cada petición identifique la aplicación
-mediante autenticación HTTP Basic.
-
-Nunca uses el email o la contraseña de candidato y nunca guardes secretos en Git.
-
-### Configuración local
-
-Crea un archivo `.env` únicamente si tu terminal o herramienta lo carga. El script
-usa variables de entorno y no lee el archivo por sí mismo:
+La integración consulta feeds configurados en `config/searches.json`, normaliza
+cada entrada del feed y la pasa por el pipeline común:
 
 ```text
-INFOJOBS_CLIENT_ID=tu_client_id
-INFOJOBS_CLIENT_SECRET=tu_client_secret
+InfoJobs RSS → normalize → deduplicate → filter → web/src/data/jobs.json
 ```
 
-En PowerShell también pueden definirse para la sesión actual:
+### Búsquedas configuradas
+
+`config/searches.json` genera feeds para:
+
+- Valencia, Paterna y Burjassot.
+- Una búsqueda generalista.
+- Búsquedas técnicas por término:
+  - programador
+  - desarrollador
+  - frontend
+  - backend
+  - Java
+  - JavaScript
+  - TypeScript
+  - Vue
+  - Angular
+  - HTML
+  - CSS
+  - SCSS
+  - Figma
+  - MongoDB
+  - MySQL
+  - diseño web
+
+La plantilla por defecto es:
+
+```text
+https://www.infojobs.net/trabajos.feed?keyword={query}&city={city}
+```
+
+Si InfoJobs cambia el formato público del feed, basta con ajustar
+`feed_url_templates` sin tocar el resto del pipeline.
+
+### Campos disponibles
+
+El RSS intenta extraer:
+
+- `title`
+- `company`, si el feed lo expone o si puede inferirse de forma básica desde el título
+- `location` / `city`, si está disponible o puede inferirse por la búsqueda
+- `published_at`
+- `url`
+- `summary` / `description`
+- `source = infojobs`
+
+El RSS normalmente no entrega la descripción completa de la oferta. Por eso cada
+oferta de InfoJobs RSS incorpora el warning:
+
+```text
+Descripción limitada por RSS
+```
+
+El filtrado seguirá funcionando con el resumen disponible. Si un campo opcional
+no aparece en el feed, queda vacío o `null`; el pipeline no falla por ello.
+
+### Logs del exportador
+
+Al ejecutar:
 
 ```powershell
-$env:INFOJOBS_CLIENT_ID = "tu_client_id"
-$env:INFOJOBS_CLIENT_SECRET = "tu_client_secret"
 python scripts/export_jobs.py
 ```
 
-`.env` está ignorado por Git. `.env.example` solo contiene nombres de variables.
+se imprimen métricas claras:
 
-### Configuración en GitHub Actions
-
-En el repositorio, abre **Settings → Secrets and variables → Actions** y crea estos
-repository secrets:
-
-- `INFOJOBS_CLIENT_ID`
-- `INFOJOBS_CLIENT_SECRET`
-
-`update-jobs.yml` los expone únicamente al proceso que ejecuta el exportador.
-
-### Búsquedas y límites
-
-`config/searches.json` define:
-
-- Valencia, Paterna y Burjassot.
-- Una búsqueda general sin palabra clave.
-- Una búsqueda de programación, desarrollo web e IT.
-- Una búsqueda con Java, HTML, CSS, SCSS, Figma, JavaScript, TypeScript, Vue,
-  Angular, MongoDB y MySQL.
-- Ofertas de los últimos siete días, 50 resultados por página y un máximo
-  configurable de páginas.
-
-Los resultados repetidos entre búsquedas se consolidan primero por ID de InfoJobs y
-después pasan por la deduplicación general del pipeline.
-
-El listado oficial proporciona requisitos mínimos, pero no siempre una descripción
-completa ni salario. Esos campos quedan vacíos cuando no existen y la oferta recibe
-un `warning`; el pipeline no falla por datos opcionales ausentes.
+- fuente usada
+- número de feeds consultados
+- número de ofertas obtenidas
+- número de ofertas válidas
+- número de ofertas descartadas
+- si se usó fallback mock y por qué
 
 ### Fallback
 
-Si faltan credenciales, InfoJobs devuelve un error, hay un timeout, el JSON no tiene
-el formato esperado o no se recupera ninguna oferta, el exportador usa
-`data/mock/source_jobs.json`. El resultado indica:
+Si los feeds fallan, devuelven XML no válido o no recuperan ninguna oferta, el
+exportador usa `data/mock/source_jobs.json`. El JSON final lo indica en
+`sourceStatus`:
 
 ```json
 {
@@ -85,13 +96,23 @@ el formato esperado o no se recupera ninguna oferta, el exportador usa
   "sourceStatus": {
     "requested": "infojobs",
     "used": "mock",
+    "sourceLabel": "Mock",
     "fallback": true,
     "warning": "..."
   }
 }
 ```
 
-Esto mantiene GitHub Pages operativa incluso durante una incidencia de la fuente.
+Esto mantiene GitHub Pages operativa aunque la fuente pública esté caída o cambie.
+
+### API oficial de InfoJobs
+
+La API oficial queda como opción futura, pero no forma parte del flujo V1. El
+código conserva un cliente aislado para esa vía por si más adelante hay acceso al
+portal developer y a credenciales de aplicación.
+
+No guardes credenciales en Git. En V1 no hay que configurar
+`INFOJOBS_CLIENT_ID` ni `INFOJOBS_CLIENT_SECRET`.
 
 ## Indeed
 

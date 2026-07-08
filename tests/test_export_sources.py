@@ -22,7 +22,12 @@ def test_falls_back_to_mock_when_infojobs_fails(monkeypatch):
     assert raw_jobs
     assert status == {
         "requested": "infojobs",
+        "requestedLabel": "InfoJobs RSS",
         "used": "mock",
+        "sourceLabel": "Mock",
         "fallback": True,
         "warning": "timeout de prueba",
+        "feedsConsulted": 0,
+        "offersObtained": 0,
+        "sourceErrors": [],
     }

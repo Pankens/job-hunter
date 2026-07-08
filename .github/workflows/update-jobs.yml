@@ -25,9 +25,6 @@ jobs:
           python-version: "3.12"
 
       - name: Generate static jobs data
-        env:
-          INFOJOBS_CLIENT_ID: ${{ secrets.INFOJOBS_CLIENT_ID }}
-          INFOJOBS_CLIENT_SECRET: ${{ secrets.INFOJOBS_CLIENT_SECRET }}
         run: python scripts/export_jobs.py
 
       - name: Commit updated data
