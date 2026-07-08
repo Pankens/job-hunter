@@ -187,6 +187,44 @@ main {
   padding: 60px max(5vw, 24px);
 }
 
+.run-alert,
+.run-summary {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.run-alert {
+  padding: 22px 24px;
+  border: 1px solid #e0b7af;
+  border-left: 5px solid var(--danger);
+}
+
+.run-alert h2 {
+  margin-bottom: 8px;
+  color: var(--danger);
+  font-size: 1.25rem;
+}
+
+.run-alert p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.run-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding: 14px 16px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  font-size: 0.82rem;
+}
+
+.run-summary span span {
+  margin-left: 8px;
+}
+
 .filters {
   padding-bottom: 48px;
   border-bottom: 1px solid var(--line);

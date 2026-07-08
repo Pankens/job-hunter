@@ -1,34 +1,66 @@
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 import scripts.export_jobs as exporter
-from scripts.sources.infojobs import InfoJobsSourceError
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_falls_back_to_mock_when_infojobs_fails(monkeypatch):
-    searches = json.loads((ROOT / "config" / "searches.json").read_text(encoding="utf-8"))
+def test_no_mock_fallback_when_use_mock_false(monkeypatch):
+    config = {
+        "use_mock": False,
+        "sources": {"infojobs_html": True},
+        "locations": ["Valencia"],
+        "general_queries": ["dependiente"],
+        "technical_queries": [],
+    }
 
-    def fail(_settings):
-        raise InfoJobsSourceError("timeout de prueba")
+    def no_jobs(_config):
+        return [], {
+            "generatedAt": "2026-07-08T00:00:00Z",
+            "runMode": "test",
+            "mockEnabled": False,
+            "activeSources": ["infojobs_html"],
+            "queriesCount": 1,
+            "rawTotalBeforeSourceDedup": 0,
+            "rawTotal": 0,
+            "sourceReports": {"infojobs_html": {"rawJobs": 0, "errors": [], "logs": []}},
+        }
 
-    monkeypatch.setattr(exporter, "fetch_infojobs_jobs", fail)
-    raw_jobs, status = exporter.load_raw_jobs(searches)
+    monkeypatch.setattr(exporter, "collect_real_sources", no_jobs)
+    raw_jobs, report = exporter.load_raw_jobs(config, "2026-07-08T00:00:00Z")
+
+    assert raw_jobs == []
+    assert report["mockFallbackUsed"] is False
+    assert "No se obtuvieron ofertas reales" in report["error"]
+
+
+def test_mock_fallback_only_when_use_mock_true(monkeypatch):
+    config = {
+        "use_mock": True,
+        "sources": {"infojobs_html": True},
+        "locations": ["Valencia"],
+        "general_queries": ["dependiente"],
+        "technical_queries": [],
+    }
+
+    def no_jobs(_config):
+        return [], {
+            "generatedAt": "2026-07-08T00:00:00Z",
+            "runMode": "test",
+            "mockEnabled": True,
+            "activeSources": ["infojobs_html"],
+            "queriesCount": 1,
+            "rawTotalBeforeSourceDedup": 0,
+            "rawTotal": 0,
+            "sourceReports": {},
+        }
+
+    monkeypatch.setattr(exporter, "collect_real_sources", no_jobs)
+    raw_jobs, report = exporter.load_raw_jobs(config, "2026-07-08T00:00:00Z")
 
     assert raw_jobs
-    assert status == {
-        "requested": "infojobs",
-        "requestedLabel": "InfoJobs RSS",
-        "used": "mock",
-        "sourceLabel": "Mock",
-        "fallback": True,
-        "warning": "timeout de prueba",
-        "feedsConsulted": 0,
-        "offersObtained": 0,
-        "sourceErrors": [],
-        "sourceLogs": [],
-    }
+    assert report["mockFallbackUsed"] is True
+    assert report["mockFallbackReason"]

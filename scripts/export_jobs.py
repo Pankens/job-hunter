@@ -1,4 +1,4 @@
-"""Genera el JSON estático desde InfoJobs RSS o desde el fallback mock."""
+"""Genera el JSON estático desde collectors HTML públicos o mock explícito."""
 
 from __future__ import annotations
 
@@ -12,15 +12,16 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from scripts.collect_sources import collect_real_sources, write_report
 from scripts.deduplicate import deduplicate_jobs
 from scripts.filter_jobs import filter_jobs
 from scripts.normalize import normalize_jobs
-from scripts.sources.infojobs import InfoJobsSourceError, fetch_infojobs_jobs
 
 MOCK_INPUT = ROOT / "data" / "mock" / "source_jobs.json"
 RULES_INPUT = ROOT / "config" / "filter_rules.json"
-SEARCHES_INPUT = ROOT / "config" / "searches.json"
+SOURCES_INPUT = ROOT / "config" / "sources.json"
 OUTPUT = ROOT / "web" / "src" / "data" / "jobs.json"
+REPORT_OUTPUT = ROOT / "data" / "last_run_report.json"
 
 
 def read_json(path: Path) -> Any:
@@ -28,79 +29,53 @@ def read_json(path: Path) -> Any:
         return json.load(file)
 
 
-def _mock_status(requested: str, warning: str, *, fallback: bool) -> dict[str, Any]:
+def _empty_report(config: dict[str, Any], generated_at: str, error: str) -> dict[str, Any]:
     return {
-        "requested": requested,
-        "requestedLabel": "InfoJobs RSS" if requested == "infojobs" else "Mock",
-        "used": "mock",
-        "sourceLabel": "Mock",
-        "fallback": fallback,
-        "warning": warning,
-        "feedsConsulted": 0,
-        "offersObtained": 0,
-        "sourceErrors": [],
-        "sourceLogs": [],
+        "generatedAt": generated_at,
+        "runMode": "local",
+        "mockEnabled": bool(config.get("use_mock", False)),
+        "activeSources": [
+            name for name, enabled in config.get("sources", {}).items() if enabled
+        ],
+        "queriesCount": 0,
+        "rawTotalBeforeSourceDedup": 0,
+        "rawTotal": 0,
+        "sourceReports": {},
+        "error": error,
     }
 
 
-def _fallback_status_from_error(error: InfoJobsSourceError) -> dict[str, Any]:
-    stats = getattr(error, "stats", None)
-    if stats is None:
-        return _mock_status("infojobs", str(error), fallback=True)
-    return {
-        "requested": "infojobs",
-        "requestedLabel": "InfoJobs RSS",
-        "used": "mock",
-        "sourceLabel": "Mock",
-        "fallback": True,
-        "warning": str(error),
-        "feedsConsulted": stats.feeds_consulted,
-        "offersObtained": stats.offers_obtained,
-        "sourceErrors": stats.errors,
-        "sourceLogs": stats.logs,
-    }
+def load_raw_jobs(config: dict[str, Any], generated_at: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Carga fuentes reales. Mock solo existe en modo explícito de desarrollo."""
+    try:
+        raw_jobs, report = collect_real_sources(config)
+    except Exception as error:
+        report = _empty_report(config, generated_at, repr(error))
+        raw_jobs = []
+        print(f"ERROR GLOBAL DEL COLLECTOR: {error!r}")
 
+    if raw_jobs:
+        return raw_jobs, report
 
-def load_raw_jobs(searches: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Carga la fuente activa y degrada a mocks ante cualquier fallo recuperable."""
-    infojobs = searches["sources"]["infojobs"]
-    if infojobs.get("enabled") and "infojobs" in searches.get("active_sources", []):
-        try:
-            raw_jobs, stats = fetch_infojobs_jobs(infojobs)
-            if not raw_jobs:
-                raise InfoJobsSourceError(
-                    "InfoJobs RSS no devolvió ofertas para las búsquedas configuradas"
-                )
-            return raw_jobs, {
-                "requested": "infojobs",
-                "requestedLabel": "InfoJobs RSS",
-                "used": "infojobs",
-                "sourceLabel": stats.source,
-                "fallback": False,
-                "warning": None,
-                "feedsConsulted": stats.feeds_consulted,
-                "offersObtained": stats.offers_obtained,
-                "sourceErrors": stats.errors,
-                "sourceLogs": stats.logs,
-            }
-        except InfoJobsSourceError as error:
-            fallback = read_json(MOCK_INPUT)
-            return fallback, _fallback_status_from_error(error)
+    if config.get("use_mock"):
+        print("USANDO MOCK FALLBACK")
+        report["mockFallbackUsed"] = True
+        report["mockFallbackReason"] = "No se obtuvieron ofertas reales y use_mock=true"
+        return read_json(MOCK_INPUT), report
 
-    return read_json(MOCK_INPUT), _mock_status(
-        "mock",
-        "InfoJobs RSS está deshabilitado en config/searches.json",
-        fallback=False,
-    )
+    report["mockFallbackUsed"] = False
+    report["error"] = report.get("error") or "No se obtuvieron ofertas reales de fuentes públicas"
+    return [], report
 
 
 def export_jobs() -> dict[str, Any]:
-    generated_at = datetime.now(timezone.utc).replace(microsecond=0)
+    generated_at_dt = datetime.now(timezone.utc).replace(microsecond=0)
+    generated_at = generated_at_dt.isoformat().replace("+00:00", "Z")
     rules = read_json(RULES_INPUT)
-    searches = read_json(SEARCHES_INPUT)
-    raw_jobs, source_status = load_raw_jobs(searches)
+    sources_config = read_json(SOURCES_INPUT)
+    raw_jobs, last_run_report = load_raw_jobs(sources_config, generated_at)
 
-    normalized = normalize_jobs(raw_jobs, generated_at)
+    normalized = normalize_jobs(raw_jobs, generated_at_dt)
     unique = deduplicate_jobs(
         normalized,
         description_similarity_threshold=rules["deduplication"][
@@ -110,55 +85,66 @@ def export_jobs() -> dict[str, Any]:
     jobs = filter_jobs(unique, rules)
     jobs.sort(key=lambda job: job["publishedAt"], reverse=True)
 
+    valid_count = sum(job["valid"] for job in jobs)
+    discarded_count = sum(not job["valid"] for job in jobs)
+    source_counts = {
+        name: report.get("rawJobs", 0)
+        for name, report in last_run_report.get("sourceReports", {}).items()
+    }
+    last_run_report.update(
+        {
+            "generatedAt": generated_at,
+            "normalized": len(normalized),
+            "deduplicated": len(unique),
+            "valid": valid_count,
+            "discarded": discarded_count,
+            "sourceCounts": source_counts,
+        }
+    )
+
+    mode = "mock-fallback" if last_run_report.get("mockFallbackUsed") else "live"
+    if not jobs and not last_run_report.get("mockFallbackUsed"):
+        mode = "empty-real-run"
+
     payload = {
-        "schemaVersion": 2,
-        "generatedAt": generated_at.isoformat().replace("+00:00", "Z"),
-        "mode": "live" if source_status["used"] == "infojobs" else "mock-fallback",
-        "sourceStatus": source_status,
+        "schemaVersion": 3,
+        "generatedAt": generated_at,
+        "mode": mode,
+        "isMock": bool(last_run_report.get("mockFallbackUsed", False)),
+        "hasRealData": bool(raw_jobs) and not last_run_report.get("mockFallbackUsed", False),
+        "emptyReason": None if jobs else last_run_report.get("error"),
+        "lastRunReport": last_run_report,
         "summary": {
             "input": len(raw_jobs),
             "total": len(jobs),
             "duplicatesRemoved": len(normalized) - len(unique),
-            "valid": sum(job["valid"] for job in jobs),
-            "discarded": sum(not job["valid"] for job in jobs),
+            "valid": valid_count,
+            "discarded": discarded_count,
         },
         "jobs": jobs,
     }
+
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT.open("w", encoding="utf-8", newline="\n") as file:
         json.dump(payload, file, ensure_ascii=False, indent=2)
         file.write("\n")
+    write_report(REPORT_OUTPUT, last_run_report)
     return payload
 
 
 if __name__ == "__main__":
     result = export_jobs()
-    status = result["sourceStatus"]
+    report = result["lastRunReport"]
     summary = result["summary"]
-    print(f"Fuente intentada: {status['requestedLabel']}")
-    print(f"Fuente usada: {status['sourceLabel']}")
-    print(f"Feeds consultados: {status['feedsConsulted']}")
-    print(f"Ofertas obtenidas: {status['offersObtained']}")
-    print(f"Ofertas válidas: {summary['valid']}")
-    print(f"Ofertas descartadas: {summary['discarded']}")
-    if status.get("sourceLogs"):
-        print("URLs consultadas:")
-        for entry in status["sourceLogs"]:
-            preview = entry.get("preview", "")
-            print(
-                "- "
-                f"{entry['url']} | "
-                f"HTTP {entry['status']} | "
-                f"{entry['responseBytes']} bytes | "
-                f"RSS válido: {'sí' if entry['validFeed'] else 'no'} | "
-                f"items: {entry['itemsParsed']} | "
-                f"motivo: {entry.get('reason') or '-'} | "
-                f"preview: {preview}"
-            )
-    if status["fallback"]:
-        print(f"*** MOCK FALLBACK ACTIVADO *** {status['warning']}")
-    else:
-        print("Mock fallback: no")
-    if status.get("sourceErrors"):
-        print(f"Avisos de fuente: {len(status['sourceErrors'])}")
+    print(f"Número normalizadas: {report['normalized']}")
+    print(f"Número deduplicadas: {report['deduplicated']}")
+    print(f"Número válidas: {summary['valid']}")
+    print(f"Número descartadas: {summary['discarded']}")
+    if result["isMock"]:
+        print("USANDO MOCK FALLBACK")
+    if result["mode"] == "empty-real-run":
+        print(f"SIN OFERTAS REALES: {result['emptyReason']}")
+    for source, count in report.get("sourceCounts", {}).items():
+        print(f"Resumen fuente {source}: {count} ofertas raw")
     print(f"Exportación {result['mode']} completada -> {OUTPUT.relative_to(ROOT)}")
+    print(f"Reporte de ejecución -> {REPORT_OUTPUT.relative_to(ROOT)}")

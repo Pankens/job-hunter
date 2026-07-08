@@ -12,6 +12,15 @@ const timeOptions = [
   { label: '7 días', value: 168 },
 ]
 const cities = ['Valencia', 'Paterna', 'Burjassot']
+const sourceLabels = {
+  infojobs: 'InfoJobs',
+  indeed: 'Indeed',
+  tecnoempleo: 'Tecnoempleo',
+  trabajos_com: 'Trabajos.com',
+  jobatus: 'Jobatus',
+  jooble: 'Jooble',
+  mock: 'Mock',
+}
 
 const storedState = (() => {
   try {
@@ -40,6 +49,15 @@ watch(
 )
 
 const availableSources = computed(() => [...new Set(jobsData.jobs.map((job) => job.source))])
+const lastRunReport = computed(() => jobsData.lastRunReport || {})
+const sourceCounts = computed(() => lastRunReport.value.sourceCounts || {})
+const noRealOffers = computed(
+  () => jobsData.summary.valid === 0 && jobsData.summary.discarded === 0,
+)
+
+function sourceLabel(source) {
+  return sourceLabels[source] || sourceLabels[source?.toLowerCase?.()] || source
+}
 
 function isVisibleByFilters(job) {
   const ageHours = (Date.now() - new Date(job.publishedAt)) / 3_600_000
@@ -111,7 +129,7 @@ function formatGeneratedAt(value) {
           <span>job-hunter</span>
         </a>
         <span class="mock-badge">
-          {{ jobsData.mode === 'live' ? 'InfoJobs · RSS' : 'Modo mock · fallback' }}
+          {{ jobsData.isMock ? 'Modo mock · desarrollo' : 'Datos reales · público' }}
         </span>
       </nav>
 
@@ -131,6 +149,25 @@ function formatGeneratedAt(value) {
     </header>
 
     <main>
+      <section v-if="noRealOffers" class="run-alert" role="status">
+        <h2>No se encontraron ofertas reales en la última actualización.</h2>
+        <p>{{ jobsData.emptyReason || 'Las fuentes públicas no devolvieron ofertas parseables.' }}</p>
+      </section>
+
+      <section v-if="lastRunReport.generatedAt" class="run-summary" aria-label="Resumen de última ejecución">
+        <span>Última actualización: {{ formatGeneratedAt(lastRunReport.generatedAt) }}</span>
+        <span>Fuentes: {{ (lastRunReport.activeSources || []).join(', ') || 'ninguna' }}</span>
+        <span>
+          Ofertas por fuente:
+          <template v-if="Object.keys(sourceCounts).length">
+            <span v-for="(count, source) in sourceCounts" :key="source">
+              {{ source }}: {{ count }}
+            </span>
+          </template>
+          <template v-else>0</template>
+        </span>
+      </section>
+
       <section class="filters" aria-labelledby="filter-title">
         <div class="section-heading">
           <div>
@@ -184,7 +221,7 @@ function formatGeneratedAt(value) {
             <select v-model="filters.source">
               <option value="all">Todas las fuentes</option>
               <option v-for="source in availableSources" :key="source" :value="source">
-                {{ source === 'infojobs' ? 'InfoJobs' : source === 'indeed' ? 'Indeed' : 'Mock' }}
+                {{ sourceLabel(source) }}
               </option>
             </select>
           </label>
@@ -230,7 +267,7 @@ function formatGeneratedAt(value) {
 
     <footer>
       <span>
-        {{ jobsData.mode === 'live' ? 'Datos de InfoJobs RSS' : 'Datos mock · Sin scraping real' }}
+        {{ jobsData.isMock ? 'Datos mock · solo desarrollo' : 'Datos reales de fuentes públicas' }}
       </span>
       <span>Actualizado {{ formatGeneratedAt(jobsData.generatedAt) }}</span>
     </footer>

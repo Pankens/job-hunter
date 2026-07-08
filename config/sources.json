@@ -1,0 +1,50 @@
+{
+  "use_mock": false,
+  "sources": {
+    "infojobs_html": true,
+    "indeed_html": true,
+    "tecnoempleo_html": true,
+    "generic_html": true
+  },
+  "max_pages_per_query": 1,
+  "delay_seconds": 3,
+  "use_playwright": true,
+  "locations": [
+    "Valencia",
+    "Paterna",
+    "Burjassot"
+  ],
+  "general_queries": [
+    "dependiente",
+    "cajero",
+    "reponedor",
+    "mozo almacén",
+    "auxiliar administrativo",
+    "atención al cliente",
+    "recepcionista",
+    "operario",
+    "limpieza",
+    "hostelería"
+  ],
+  "technical_queries": [
+    "programador",
+    "desarrollador",
+    "frontend",
+    "backend",
+    "full stack",
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "Vue",
+    "Angular",
+    "HTML",
+    "CSS",
+    "SCSS",
+    "Figma",
+    "MongoDB",
+    "MySQL",
+    "diseño web",
+    "informático",
+    "soporte técnico"
+  ]
+}
