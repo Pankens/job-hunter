@@ -65,6 +65,20 @@ class FeedFetchStats:
     feeds_consulted: int
     offers_obtained: int
     errors: list[str]
+    logs: list[dict[str, Any]]
+
+
+def _preview_response(content: bytes, limit: int = 300) -> str:
+    text = content.decode("utf-8", errors="replace")
+    return re.sub(r"\s+", " ", text).strip()[:limit]
+
+
+def _local_name(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1].lower()
+
+
+def _is_rss_or_atom_root(root: ET.Element) -> bool:
+    return _local_name(root.tag) in {"rss", "feed", "rdf"}
 
 
 def _dictionary_value(value: Any) -> str:
@@ -200,6 +214,11 @@ def parse_infojobs_feed(
     except ET.ParseError as error:
         raise InfoJobsSourceError(f"Feed XML no válido: {feed_url}") from error
 
+    if not _is_rss_or_atom_root(root):
+        raise InfoJobsSourceError(
+            f"Respuesta XML válida pero no es RSS/Atom: {feed_url}"
+        )
+
     entries = root.findall(".//item")
     if not entries:
         entries = [
@@ -253,6 +272,56 @@ def parse_infojobs_feed(
     return jobs
 
 
+def fetch_feed_response(
+    feed: dict[str, str],
+    *,
+    timeout_seconds: int,
+    opener: Callable[..., Any] = urlopen,
+) -> tuple[bytes, dict[str, Any]]:
+    """Descarga una URL de feed y devuelve cuerpo + log de diagnóstico."""
+    request = Request(
+        feed["url"],
+        headers={
+            "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
+            "User-Agent": "Mozilla/5.0 (compatible; job-hunter/1.0; +https://github.com/)",
+        },
+        method="GET",
+    )
+    try:
+        with opener(request, timeout=timeout_seconds) as response:
+            content = response.read()
+            status = int(getattr(response, "status", 200) or 200)
+            headers = getattr(response, "headers", None)
+            content_type = headers.get("Content-Type", "") if headers else ""
+    except HTTPError as error:
+        content = error.read()
+        return content, {
+            "url": feed["url"],
+            "search": feed["search"],
+            "city": feed["city"],
+            "status": int(error.code),
+            "contentType": error.headers.get("Content-Type", "") if error.headers else "",
+            "responseBytes": len(content),
+            "preview": _preview_response(content),
+            "validFeed": False,
+            "itemsParsed": 0,
+            "reason": f"HTTP {error.code}",
+        }
+
+    return content, {
+        "url": feed["url"],
+        "search": feed["search"],
+        "city": feed["city"],
+        "status": status,
+        "contentType": content_type,
+        "responseBytes": len(content),
+        "preview": _preview_response(content),
+        "validFeed": False,
+        "itemsParsed": 0,
+        "reason": "",
+    }
+
+
 def fetch_infojobs_rss_jobs(
     settings: dict[str, Any],
     opener: Callable[..., Any] = urlopen,
@@ -262,34 +331,58 @@ def fetch_infojobs_rss_jobs(
     timeout_seconds = int(settings.get("timeout_seconds", 20))
     raw_by_id: dict[str, dict[str, Any]] = {}
     errors: list[str] = []
+    logs: list[dict[str, Any]] = []
     consulted = 0
 
     for feed in urls:
-        request = Request(
-            feed["url"],
-            headers={
-                "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.8",
-                "User-Agent": "job-hunter/1.0 (+https://github.com/)",
-            },
-            method="GET",
-        )
+        consulted += 1
+        log: dict[str, Any] | None = None
         try:
-            consulted += 1
-            with opener(request, timeout=timeout_seconds) as response:
-                xml_bytes = response.read()
-            for job in parse_infojobs_feed(
-                xml_bytes, feed_url=feed["url"], configured_city=feed["city"]
-            ):
+            xml_bytes, log = fetch_feed_response(
+                feed,
+                timeout_seconds=timeout_seconds,
+                opener=opener,
+            )
+            jobs = parse_infojobs_feed(
+                xml_bytes,
+                feed_url=feed["url"],
+                configured_city=feed["city"],
+            )
+            log["validFeed"] = True
+            log["itemsParsed"] = len(jobs)
+            logs.append(log)
+            if not jobs:
+                reason = f"{feed['search']} · {feed['city']}: RSS válido sin items: {feed['url']}"
+                errors.append(reason)
+                logs[-1]["reason"] = "RSS válido sin items"
+            for job in jobs:
                 source_id = str(job.get("source_id") or "").strip()
                 if source_id:
                     raw_by_id[source_id] = job
-        except HTTPError as error:
-            errors.append(f"{feed['search']} · {feed['city']}: HTTP {error.code}")
         except (URLError, TimeoutError, OSError) as error:
             reason = error.reason if isinstance(error, URLError) else error
-            errors.append(f"{feed['search']} · {feed['city']}: {reason}")
+            message = f"{feed['search']} · {feed['city']}: {reason} · {feed['url']}"
+            errors.append(message)
+            logs.append(
+                {
+                    "url": feed["url"],
+                    "search": feed["search"],
+                    "city": feed["city"],
+                    "status": None,
+                    "contentType": "",
+                    "responseBytes": 0,
+                    "preview": "",
+                    "validFeed": False,
+                    "itemsParsed": 0,
+                    "reason": str(reason),
+                }
+            )
         except InfoJobsSourceError as error:
-            errors.append(f"{feed['search']} · {feed['city']}: {error}")
+            message = f"{feed['search']} · {feed['city']}: {error} · {feed['url']}"
+            errors.append(message)
+            if log is not None:
+                log["reason"] = str(error)
+                logs.append(log)
 
     jobs = list(raw_by_id.values())
     if not jobs:
@@ -298,6 +391,7 @@ def fetch_infojobs_rss_jobs(
             feeds_consulted=consulted,
             offers_obtained=0,
             errors=errors,
+            logs=logs,
         )
         detail = "; ".join(errors[:5]) if errors else "los feeds no devolvieron ofertas"
         raise InfoJobsSourceError(
@@ -310,6 +404,7 @@ def fetch_infojobs_rss_jobs(
         feeds_consulted=consulted,
         offers_obtained=len(jobs),
         errors=errors,
+        logs=logs,
     )
 
 

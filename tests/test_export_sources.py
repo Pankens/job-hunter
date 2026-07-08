@@ -30,4 +30,5 @@ def test_falls_back_to_mock_when_infojobs_fails(monkeypatch):
         "feedsConsulted": 0,
         "offersObtained": 0,
         "sourceErrors": [],
+        "sourceLogs": [],
     }

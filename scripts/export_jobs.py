@@ -39,6 +39,7 @@ def _mock_status(requested: str, warning: str, *, fallback: bool) -> dict[str, A
         "feedsConsulted": 0,
         "offersObtained": 0,
         "sourceErrors": [],
+        "sourceLogs": [],
     }
 
 
@@ -56,6 +57,7 @@ def _fallback_status_from_error(error: InfoJobsSourceError) -> dict[str, Any]:
         "feedsConsulted": stats.feeds_consulted,
         "offersObtained": stats.offers_obtained,
         "sourceErrors": stats.errors,
+        "sourceLogs": stats.logs,
     }
 
 
@@ -79,6 +81,7 @@ def load_raw_jobs(searches: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[
                 "feedsConsulted": stats.feeds_consulted,
                 "offersObtained": stats.offers_obtained,
                 "sourceErrors": stats.errors,
+                "sourceLogs": stats.logs,
             }
         except InfoJobsSourceError as error:
             fallback = read_json(MOCK_INPUT)
@@ -138,8 +141,22 @@ if __name__ == "__main__":
     print(f"Ofertas obtenidas: {status['offersObtained']}")
     print(f"Ofertas válidas: {summary['valid']}")
     print(f"Ofertas descartadas: {summary['discarded']}")
+    if status.get("sourceLogs"):
+        print("URLs consultadas:")
+        for entry in status["sourceLogs"]:
+            preview = entry.get("preview", "")
+            print(
+                "- "
+                f"{entry['url']} | "
+                f"HTTP {entry['status']} | "
+                f"{entry['responseBytes']} bytes | "
+                f"RSS válido: {'sí' if entry['validFeed'] else 'no'} | "
+                f"items: {entry['itemsParsed']} | "
+                f"motivo: {entry.get('reason') or '-'} | "
+                f"preview: {preview}"
+            )
     if status["fallback"]:
-        print(f"Mock fallback: sí ({status['warning']})")
+        print(f"*** MOCK FALLBACK ACTIVADO *** {status['warning']}")
     else:
         print("Mock fallback: no")
     if status.get("sourceErrors"):

@@ -79,6 +79,11 @@ def test_rss_does_not_require_application_credentials():
     assert calls == 1
     assert stats.source == "InfoJobs RSS"
     assert stats.feeds_consulted == 1
+    assert stats.logs[0]["url"] == "https://www.infojobs.net/trabajos.feed?keyword=Vue&city=Valencia"
+    assert stats.logs[0]["status"] == 200
+    assert stats.logs[0]["responseBytes"] > 0
+    assert stats.logs[0]["validFeed"] is True
+    assert "Frontend Vue" in stats.logs[0]["preview"]
     assert len(jobs) == 1
     assert jobs[0]["source"] == "infojobs"
 
@@ -144,6 +149,7 @@ def test_fetches_rss_and_deduplicates_by_feed_id():
     assert calls == 2
     assert stats.feeds_consulted == 2
     assert stats.offers_obtained == 1
+    assert len(stats.logs) == 2
     assert len(jobs) == 1
     assert jobs[0]["source_id"] == "i123"
 
