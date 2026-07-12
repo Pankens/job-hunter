@@ -1,12 +1,12 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-07-12T08:30:55Z",
+  "generatedAt": "2026-07-12T13:55:24Z",
   "mode": "live",
   "isMock": false,
   "hasRealData": true,
   "emptyReason": null,
   "lastRunReport": {
-    "generatedAt": "2026-07-12T08:30:55Z",
+    "generatedAt": "2026-07-12T13:55:24Z",
     "runMode": "github_actions",
     "mockEnabled": false,
     "activeSources": [
@@ -16,11 +16,11 @@
       "generic_html"
     ],
     "queriesCount": 87,
-    "rawTotalBeforeSourceDedup": 3575,
+    "rawTotalBeforeSourceDedup": 3600,
     "rawTotal": 154,
     "sourceReports": {
       "infojobs_html": {
-        "rawJobs": 2150,
+        "rawJobs": 2175,
         "errors": [],
         "usedPlaywright": false,
         "logs": [
@@ -30,7 +30,7 @@
             "query": "dependiente",
             "city": "Valencia",
             "httpStatus": 200,
-            "htmlBytes": 1185934,
+            "htmlBytes": 1185933,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Trabajo de Dependiente en Valencia/València - InfoJobs</title><meta name=\"description\" content=\"203 ofertas de empleo de dependiente en Valencia/València. ¡Encuentra la oportunidad laboral que estás buscando!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"of",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -43,7 +43,7 @@
             "query": "cajero",
             "city": "Valencia",
             "httpStatus": 200,
-            "htmlBytes": 1147932,
+            "htmlBytes": 1148522,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Trabajo de Cajero en Valencia/València - InfoJobs</title><meta name=\"description\" content=\"24 ofertas de empleo de cajero en Valencia/València. ¡Encuentra la oportunidad laboral que estás buscando!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de tr",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -212,7 +212,7 @@
             "query": "full stack",
             "city": "Valencia",
             "httpStatus": 200,
-            "htmlBytes": 1105670,
+            "htmlBytes": 1109465,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Trabajo de Full stack en Valencia/València - InfoJobs</title><meta name=\"description\" content=\"8 ofertas de empleo de full stack en Valencia/València. ¡Encuentra la oportunidad laboral que estás buscando!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"oferta",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -420,8 +420,8 @@
             "query": "cajero",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1178060,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Cajero</title><meta name=\"description\" content=\"597 ofertas de empleo de cajero en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de caj",
+            "htmlBytes": 1179385,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Cajero</title><meta name=\"description\" content=\"603 ofertas de empleo de cajero en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de caj",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -433,8 +433,8 @@
             "query": "reponedor",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1176535,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Reponedor</title><meta name=\"description\" content=\"764 ofertas de empleo de reponedor en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo ",
+            "htmlBytes": 1174874,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Reponedor</title><meta name=\"description\" content=\"769 ofertas de empleo de reponedor en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo ",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -446,8 +446,8 @@
             "query": "mozo almacén",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1160106,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Mozo almacén</title><meta name=\"description\" content=\"2.319 ofertas de empleo de mozo almacén en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de ",
+            "htmlBytes": 1160072,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Mozo almacén</title><meta name=\"description\" content=\"2.320 ofertas de empleo de mozo almacén en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de ",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -473,7 +473,7 @@
             "city": "Paterna",
             "httpStatus": 200,
             "htmlBytes": 1191120,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Atención al cliente</title><meta name=\"description\" content=\"14.121 ofertas de empleo de atención al cliente en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" conte",
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Atención al cliente</title><meta name=\"description\" content=\"14.128 ofertas de empleo de atención al cliente en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" conte",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -485,7 +485,7 @@
             "query": "recepcionista",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1176174,
+            "htmlBytes": 1176433,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Recepcionista</title><meta name=\"description\" content=\"951 ofertas de empleo de recepcionista en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de ",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -499,7 +499,7 @@
             "city": "Paterna",
             "httpStatus": 200,
             "htmlBytes": 1181264,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Operario</title><meta name=\"description\" content=\"4.356 ofertas de empleo de operario en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo ",
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Operario</title><meta name=\"description\" content=\"4.357 ofertas de empleo de operario en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo ",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -511,8 +511,8 @@
             "query": "limpieza",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1182526,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Limpieza</title><meta name=\"description\" content=\"10.289 ofertas de empleo de limpieza en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo",
+            "htmlBytes": 1182528,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Limpieza</title><meta name=\"description\" content=\"10.296 ofertas de empleo de limpieza en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -525,7 +525,7 @@
             "city": "Paterna",
             "httpStatus": 200,
             "htmlBytes": 1180055,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Hostelería</title><meta name=\"description\" content=\"3.306 ofertas de empleo de hostelería en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trab",
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Hostelería</title><meta name=\"description\" content=\"3.307 ofertas de empleo de hostelería en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trab",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -563,7 +563,7 @@
             "query": "frontend",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1181885,
+            "htmlBytes": 1181884,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Frontend</title><meta name=\"description\" content=\"249 ofertas de empleo de frontend en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -615,7 +615,7 @@
             "query": "JavaScript",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1181916,
+            "htmlBytes": 1190334,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Javascript</title><meta name=\"description\" content=\"193 ofertas de empleo de javascript en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabaj",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -706,7 +706,7 @@
             "query": "Figma",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1141879,
+            "htmlBytes": 1142392,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Figma</title><meta name=\"description\" content=\"52 ofertas de empleo de figma en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de figma,",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -718,11 +718,11 @@
             "url": "https://www.infojobs.net/ofertas-trabajo/paterna/mongodb",
             "query": "MongoDB",
             "city": "Paterna",
-            "httpStatus": 500,
-            "htmlBytes": 27705,
-            "preview": "<!DOCTYPE html> <!-- saved from url=(0038)https://www.infojobs.net/error.xhtml --> <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"es\" lang=\"es\"> <head data-page-config=\"{&quot;site&quot;:&quot;https://www.infojobs.net&quot;,&quot;xitiPortalLevelTwo&quot;:1,&quot;staticPath&quot;:&quot;//es-sta",
-            "candidatesDetected": 0,
-            "rawJobs": 0,
+            "httpStatus": 200,
+            "htmlBytes": 1141070,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Mongodb</title><meta name=\"description\" content=\"64 ofertas de empleo de mongodb en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de mo",
+            "candidatesDetected": 25,
+            "rawJobs": 25,
             "error": "",
             "usedPlaywright": false
           },
@@ -745,8 +745,8 @@
             "query": "diseño web",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1202083,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Diseño web</title><meta name=\"description\" content=\"378 ofertas de empleo de diseño web en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabaj",
+            "htmlBytes": 1200388,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Diseño web</title><meta name=\"description\" content=\"377 ofertas de empleo de diseño web en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabaj",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -758,7 +758,7 @@
             "query": "informático",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 1183338,
+            "htmlBytes": 1183298,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Informático</title><meta name=\"description\" content=\"989 ofertas de empleo de informático en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trab",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -772,7 +772,7 @@
             "city": "Paterna",
             "httpStatus": 200,
             "htmlBytes": 1202336,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Soporte técnico</title><meta name=\"description\" content=\"3.152 ofertas de empleo de soporte técnico en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofert",
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Soporte técnico</title><meta name=\"description\" content=\"3.153 ofertas de empleo de soporte técnico en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofert",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -784,7 +784,7 @@
             "query": "dependiente",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1174812,
+            "htmlBytes": 1174133,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Dependiente</title><meta name=\"description\" content=\"3.534 ofertas de empleo de dependiente en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de tr",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -797,8 +797,8 @@
             "query": "cajero",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1177984,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Cajero</title><meta name=\"description\" content=\"597 ofertas de empleo de cajero en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de caj",
+            "htmlBytes": 1179279,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Cajero</title><meta name=\"description\" content=\"603 ofertas de empleo de cajero en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de caj",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -810,8 +810,8 @@
             "query": "reponedor",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1176535,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Reponedor</title><meta name=\"description\" content=\"764 ofertas de empleo de reponedor en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo ",
+            "htmlBytes": 1174834,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Reponedor</title><meta name=\"description\" content=\"769 ofertas de empleo de reponedor en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo ",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -824,7 +824,7 @@
             "city": "Burjassot",
             "httpStatus": 200,
             "htmlBytes": 1160106,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Mozo almacén</title><meta name=\"description\" content=\"2.319 ofertas de empleo de mozo almacén en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de ",
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Mozo almacén</title><meta name=\"description\" content=\"2.321 ofertas de empleo de mozo almacén en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de ",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -849,8 +849,8 @@
             "query": "atención al cliente",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1191120,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Atención al cliente</title><meta name=\"description\" content=\"14.121 ofertas de empleo de atención al cliente en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" conte",
+            "htmlBytes": 1191142,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Atención al cliente</title><meta name=\"description\" content=\"14.128 ofertas de empleo de atención al cliente en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" conte",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -862,7 +862,7 @@
             "query": "recepcionista",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1176138,
+            "htmlBytes": 1176352,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Recepcionista</title><meta name=\"description\" content=\"951 ofertas de empleo de recepcionista en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de ",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -875,8 +875,8 @@
             "query": "operario",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1181218,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Operario</title><meta name=\"description\" content=\"4.356 ofertas de empleo de operario en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo ",
+            "htmlBytes": 1181266,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Operario</title><meta name=\"description\" content=\"4.357 ofertas de empleo de operario en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo ",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -888,8 +888,8 @@
             "query": "limpieza",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1182538,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Limpieza</title><meta name=\"description\" content=\"10.289 ofertas de empleo de limpieza en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo",
+            "htmlBytes": 1182528,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Limpieza</title><meta name=\"description\" content=\"10.296 ofertas de empleo de limpieza en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -902,7 +902,7 @@
             "city": "Burjassot",
             "httpStatus": 200,
             "htmlBytes": 1180055,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Hostelería</title><meta name=\"description\" content=\"3.306 ofertas de empleo de hostelería en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trab",
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Hostelería</title><meta name=\"description\" content=\"3.308 ofertas de empleo de hostelería en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trab",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -940,7 +940,7 @@
             "query": "frontend",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1181885,
+            "htmlBytes": 1181884,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Frontend</title><meta name=\"description\" content=\"249 ofertas de empleo de frontend en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -1083,7 +1083,7 @@
             "query": "Figma",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1141826,
+            "htmlBytes": 1142391,
             "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Figma</title><meta name=\"description\" content=\"52 ofertas de empleo de figma en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabajo de figma,",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -1122,8 +1122,8 @@
             "query": "diseño web",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1202083,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Diseño web</title><meta name=\"description\" content=\"378 ofertas de empleo de diseño web en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabaj",
+            "htmlBytes": 1200388,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Diseño web</title><meta name=\"description\" content=\"377 ofertas de empleo de diseño web en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofertas de trabaj",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -1148,8 +1148,8 @@
             "query": "soporte técnico",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 1202312,
-            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Soporte técnico</title><meta name=\"description\" content=\"3.152 ofertas de empleo de soporte técnico en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofert",
+            "htmlBytes": 1202336,
+            "preview": "<!doctype html><html><head><title data-rh=\"\">Ofertas de trabajo de Soporte técnico</title><meta name=\"description\" content=\"3.153 ofertas de empleo de soporte técnico en el portal de empleo donde nacen las oportunidades laborales. ¡Encuentra la tuya!\" data-rh=\"\"/><meta name=\"Keywords\" content=\"ofert",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -2332,7 +2332,7 @@
             "query": "frontend",
             "city": "Valencia",
             "httpStatus": 200,
-            "htmlBytes": 153168,
+            "htmlBytes": 153124,
             "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>160 Ofertas Trabajo de frontend - tecnoempleo</title> <meta name=\"description\" content=\"160 Ofertas de trabajo publicadas de frontend en Informática y Telecomunicaciones - tecnoempl",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -2527,7 +2527,7 @@
             "query": "informático",
             "city": "Valencia",
             "httpStatus": 200,
-            "htmlBytes": 114685,
+            "htmlBytes": 112168,
             "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>Ofertas Trabajo de informático - tecnoempleo</title> <meta name=\"description\" content=\"Ofertas de trabajo publicadas de informático en Informática y Telecomunicaciones - tecnoempleo",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -2541,7 +2541,7 @@
             "city": "Valencia",
             "httpStatus": 200,
             "htmlBytes": 166893,
-            "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>430 Ofertas Trabajo de soporte técnico - tecnoempleo</title> <meta name=\"description\" content=\"430 Ofertas de trabajo publicadas de soporte técnico en Informática y Telecomunicacion",
+            "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>429 Ofertas Trabajo de soporte técnico - tecnoempleo</title> <meta name=\"description\" content=\"429 Ofertas de trabajo publicadas de soporte técnico en Informática y Telecomunicacion",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -2579,7 +2579,7 @@
             "query": "frontend",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 153166,
+            "htmlBytes": 153122,
             "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>160 Ofertas Trabajo de frontend - tecnoempleo</title> <meta name=\"description\" content=\"160 Ofertas de trabajo publicadas de frontend en Informática y Telecomunicaciones - tecnoempl",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -2774,7 +2774,7 @@
             "query": "informático",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 114683,
+            "htmlBytes": 112166,
             "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>Ofertas Trabajo de informático - tecnoempleo</title> <meta name=\"description\" content=\"Ofertas de trabajo publicadas de informático en Informática y Telecomunicaciones - tecnoempleo",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -2788,7 +2788,7 @@
             "city": "Paterna",
             "httpStatus": 200,
             "htmlBytes": 166891,
-            "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>430 Ofertas Trabajo de soporte técnico - tecnoempleo</title> <meta name=\"description\" content=\"430 Ofertas de trabajo publicadas de soporte técnico en Informática y Telecomunicacion",
+            "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>429 Ofertas Trabajo de soporte técnico - tecnoempleo</title> <meta name=\"description\" content=\"429 Ofertas de trabajo publicadas de soporte técnico en Informática y Telecomunicacion",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -3021,7 +3021,7 @@
             "query": "informático",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 114687,
+            "htmlBytes": 112170,
             "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>Ofertas Trabajo de informático - tecnoempleo</title> <meta name=\"description\" content=\"Ofertas de trabajo publicadas de informático en Informática y Telecomunicaciones - tecnoempleo",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -3035,7 +3035,7 @@
             "city": "Burjassot",
             "httpStatus": 200,
             "htmlBytes": 166895,
-            "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>430 Ofertas Trabajo de soporte técnico - tecnoempleo</title> <meta name=\"description\" content=\"430 Ofertas de trabajo publicadas de soporte técnico en Informática y Telecomunicacion",
+            "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>429 Ofertas Trabajo de soporte técnico - tecnoempleo</title> <meta name=\"description\" content=\"429 Ofertas de trabajo publicadas de soporte técnico en Informática y Telecomunicacion",
             "candidatesDetected": 25,
             "rawJobs": 25,
             "error": "",
@@ -3057,7 +3057,7 @@
     "valid": 140,
     "discarded": 0,
     "sourceCounts": {
-      "infojobs_html": 2150,
+      "infojobs_html": 2175,
       "indeed_html": 0,
       "tecnoempleo_html": 1425,
       "generic_html": 0
@@ -3085,7 +3085,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/dependiente",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3124,7 +3124,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/valencia-valencia",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3163,7 +3163,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/barcelona",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3202,7 +3202,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/madrid",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3241,7 +3241,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/malaga",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3280,7 +3280,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/alicante-alacant",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3319,7 +3319,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/islas-baleares-illes-balears",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3358,7 +3358,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/las-palmas",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3397,7 +3397,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/girona",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3436,7 +3436,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/santa-cruz-de-tenerife",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3475,7 +3475,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/vizcaya-bizkaia",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3514,7 +3514,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/sevilla",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3553,7 +3553,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/murcia",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3592,7 +3592,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/a-coruna",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3631,7 +3631,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/zaragoza",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3670,7 +3670,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/guipuzcoa-gipuzkoa",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3709,7 +3709,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/asturias",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3748,7 +3748,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/tarragona",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3787,7 +3787,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/pontevedra",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3826,7 +3826,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/cadiz",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3865,7 +3865,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/cantabria",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3904,7 +3904,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/alava-araba",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3943,7 +3943,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/navarra",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -3982,7 +3982,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/lleida",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4021,7 +4021,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/almeria",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4060,7 +4060,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/cajero",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4099,7 +4099,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/granada",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4138,7 +4138,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/burgos",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4177,7 +4177,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/castellon-castello",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4216,7 +4216,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/leon",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4255,7 +4255,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/reponedor",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4294,7 +4294,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/mozo-almacen",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4333,7 +4333,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/toledo",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4372,7 +4372,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/guadalajara",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4411,7 +4411,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/valladolid",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4450,7 +4450,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/auxiliar-administrativo",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4489,7 +4489,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/cordoba",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4528,7 +4528,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/atencion-al-cliente",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4567,7 +4567,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/recepcionista",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4606,7 +4606,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/la-rioja",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4645,7 +4645,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/salamanca",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4684,7 +4684,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/operario",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4723,7 +4723,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/limpieza",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4762,7 +4762,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/hosteleria",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4801,7 +4801,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/programador",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4840,7 +4840,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/desarrollador",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4881,7 +4881,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/frontend",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4922,7 +4922,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/huesca",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -4961,7 +4961,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/backend",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5002,7 +5002,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/cuenca",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5041,7 +5041,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/full-stack",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5082,7 +5082,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/ciudad-real",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5121,7 +5121,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/java",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5162,7 +5162,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/jaen",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5201,7 +5201,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/javascript",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5242,7 +5242,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/typescript",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5283,7 +5283,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/badajoz",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5322,7 +5322,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/informatica-telecomunicaciones/valencia-valencia",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5363,7 +5363,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/casinos/desarrollador-web-wordpress-php/of-i9602bea9be472f89c96e69ce8180c1?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5404,7 +5404,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/valencia/desarrollador-senior-.net/of-ic095e206d34ec9ae47170de9a726d6?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5445,7 +5445,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/valencia/ingeniero-software-senior-.net/of-i8ecafb0244440ba4993116929afb72?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5484,7 +5484,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/caceres",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5523,7 +5523,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/ceuta",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5562,7 +5562,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/angular",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5603,7 +5603,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/html",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5644,7 +5644,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/albacete",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5683,7 +5683,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/melilla",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5722,7 +5722,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/ourense",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5761,7 +5761,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/soria",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5800,7 +5800,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/segovia",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5839,7 +5839,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/lugo",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5878,7 +5878,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/scss",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5919,7 +5919,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/informatica-telecomunicaciones",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5960,7 +5960,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/comercial-ventas",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -5999,7 +5999,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/ingenieros-tecnicos",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6038,7 +6038,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/primer-empleo",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6077,7 +6077,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/atencion-cliente",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6116,7 +6116,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/sanidad-salud",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6155,7 +6155,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/marketing-comunicacion",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6194,7 +6194,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/recursos-humanos",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6233,7 +6233,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/sector-farmaceutico",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6272,7 +6272,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/valencia",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6311,7 +6311,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/vizcaya",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6350,7 +6350,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/illes-balears",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6389,7 +6389,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/alicante",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6428,7 +6428,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/guipuzcoa",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6467,7 +6467,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/ingeniero",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6506,7 +6506,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/abogado",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6545,7 +6545,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/trabajo-estudiantes",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6584,7 +6584,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/figma",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6625,7 +6625,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/diseno-artes-graficas/valencia-valencia",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6664,7 +6664,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/paterna/disenador-web-ux-ui-seo-marketing-digital-proyecto-1-mes/of-i8b18c452794baa93a6616fa984034b?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6706,7 +6706,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/catarroja/disenador-grafico/of-i54de63284f4308b1f3abe31f061301?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6745,7 +6745,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/mongodb",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6786,7 +6786,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/mysql",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6827,7 +6827,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/diseno-web",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6868,7 +6868,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/informatico",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6907,7 +6907,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/soporte-tecnico",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6946,7 +6946,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/calidad-produccion-id",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -6985,7 +6985,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/finanzas-banca",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7024,7 +7024,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/madrid/desarrollador-angular-modalidad-hibrida/of-i60dfd955a149a3ba8c4871476d326b?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7066,7 +7066,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/madrid/programador-frontend-angular-ia-inteligencia-artificial/of-if7daf6e52f488f8625eb0d657a0d2e?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7108,7 +7108,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/a-coruna/programador-vue-3-quasar-para-multinacional-tecnologica/of-id37cbe029c43488660a9a0cd0de0f1?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7149,7 +7149,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/madrid/senior-frontend-developer-angular/of-iaef53cec07465e9bc25b2ea2e79272?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7191,7 +7191,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/barcelona/fullstack-developer-angular-java/of-i4a82095def4b8ea9000ef3c4d26b5a?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7234,7 +7234,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/diseno-artes-graficas",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7273,7 +7273,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/administracion-empresas",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7312,7 +7312,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/otros",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7351,7 +7351,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/ofertas-trabajo/administracion-publica",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7377,20 +7377,20 @@
       ]
     },
     {
-      "id": "infojobs-98b195f69eaf",
+      "id": "infojobs-b2d455ee648c",
       "source": "infojobs",
-      "sourceId": "509de53d8cfa7ba7",
+      "sourceId": "1efff0276221f485",
       "title": "Administrador/a BBDD MongoDB. Remoto",
       "company": "Empresa no indicada",
-      "city": "Burjassot",
-      "location": "Burjassot",
+      "city": "Paterna",
+      "location": "Paterna",
       "description": "",
       "requirements": "",
       "requiredLanguages": [],
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/madrid/administrador-bbdd-mongodb.-remoto/of-i4d0bdbe1b1442eae9451102903bc88?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7406,7 +7406,7 @@
       "status": "valid",
       "reject_reasons": [],
       "match_reasons": [
-        "Ubicación admitida: Burjassot",
+        "Ubicación admitida: Paterna",
         "Coincide con el perfil técnico: mongodb"
       ],
       "warnings": [
@@ -7418,20 +7418,20 @@
       ]
     },
     {
-      "id": "infojobs-9b6effd8666f",
+      "id": "infojobs-a2581cd04900",
       "source": "infojobs",
-      "sourceId": "5b0e4083ed7ee0ca",
+      "sourceId": "228efcd080e21f60",
       "title": "Desarrollador Junior de .NET con curiosidad IA | Palma de Mallorca",
       "company": "Empresa no indicada",
-      "city": "Burjassot",
-      "location": "Burjassot",
+      "city": "Paterna",
+      "location": "Paterna",
       "description": "",
       "requirements": "",
       "requiredLanguages": [],
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/palma-de-mallorca/desarrollador-junior-.net-con-curiosidad-ia-palma-mallorca/of-ie6f9b63cae414883a3c1e7c1f4b91a?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7447,7 +7447,7 @@
       "status": "valid",
       "reject_reasons": [],
       "match_reasons": [
-        "Ubicación admitida: Burjassot",
+        "Ubicación admitida: Paterna",
         "Coincide con el perfil técnico: desarrollador"
       ],
       "warnings": [
@@ -7459,20 +7459,20 @@
       ]
     },
     {
-      "id": "infojobs-571096d9e69f",
+      "id": "infojobs-89012eafc67d",
       "source": "infojobs",
-      "sourceId": "fff65449c3301209",
+      "sourceId": "63dd7f4abec07747",
       "title": "Desarrollador/a Java con inglés (Teletrabajo)",
       "company": "Empresa no indicada",
-      "city": "Burjassot",
-      "location": "Burjassot",
+      "city": "Paterna",
+      "location": "Paterna",
       "description": "",
       "requirements": "",
       "requiredLanguages": [],
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/madrid/desarrollador-java-con-ingles-teletrabajo/of-ib1f62f7e734517bc83c11d1dd1855e?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7489,7 +7489,7 @@
       "status": "valid",
       "reject_reasons": [],
       "match_reasons": [
-        "Ubicación admitida: Burjassot",
+        "Ubicación admitida: Paterna",
         "Coincide con el perfil técnico: desarrollador, java"
       ],
       "warnings": [
@@ -7501,20 +7501,20 @@
       ]
     },
     {
-      "id": "infojobs-5130f394262c",
+      "id": "infojobs-998a59869754",
       "source": "infojobs",
-      "sourceId": "448c982f1d1886b6",
+      "sourceId": "cab6e3fe432608f7",
       "title": "Desarrollador/a Backend Java Senior + Ingles (Java 17 + Spring Boot 4) ( Remoto con asistencia puntual) CC",
       "company": "Empresa no indicada",
-      "city": "Burjassot",
-      "location": "Burjassot",
+      "city": "Paterna",
+      "location": "Paterna",
       "description": "",
       "requirements": "",
       "requiredLanguages": [],
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/madrid/desarrollador-backend-java-senior-ingles-java-17-spring-boot-4-remoto-con-asistencia-puntual-cc/of-i7e33862eab4232ae9a231a4b109d0a?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7532,7 +7532,7 @@
       "status": "valid",
       "reject_reasons": [],
       "match_reasons": [
-        "Ubicación admitida: Burjassot",
+        "Ubicación admitida: Paterna",
         "Coincide con el perfil técnico: desarrollador, backend, java"
       ],
       "warnings": [
@@ -7544,20 +7544,20 @@
       ]
     },
     {
-      "id": "infojobs-7464b27113d1",
+      "id": "infojobs-5e53d063d1af",
       "source": "infojobs",
-      "sourceId": "5be4a0c66c7610c2",
+      "sourceId": "77eae4775931c159",
       "title": "Desarrollador/a Spring Boot + C/C++ sobre z/OS + PostgreSQL-Teletrabajo 100%",
       "company": "Empresa no indicada",
-      "city": "Burjassot",
-      "location": "Burjassot",
+      "city": "Paterna",
+      "location": "Paterna",
       "description": "",
       "requirements": "",
       "requiredLanguages": [],
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.infojobs.net/alcobendas/desarrollador-spring-boot-c-c-sobre-z-postgresql-teletrabajo-100/of-i9dac1bf94346b69c29ad32e07dbf11?applicationOrigin=search-new&page=1&sortBy=RELEVANCE",
       "sourceWarnings": [
         "Oferta detectada por enlace público de InfoJobs",
@@ -7573,7 +7573,7 @@
       "status": "valid",
       "reject_reasons": [],
       "match_reasons": [
-        "Ubicación admitida: Burjassot",
+        "Ubicación admitida: Paterna",
         "Coincide con el perfil técnico: desarrollador"
       ],
       "warnings": [
@@ -7598,7 +7598,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7639,7 +7639,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/servicios-publicacion-ofertas.php",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7678,7 +7678,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/?urg=1",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7717,7 +7717,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/?te=programador&pagina=2",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7756,7 +7756,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/java",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7797,7 +7797,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/python",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7836,7 +7836,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/sql",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7875,7 +7875,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/aws",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7914,7 +7914,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/sap",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7953,7 +7953,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/angular",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -7994,7 +7994,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/javascript",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8035,7 +8035,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/linux",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8074,7 +8074,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/spring",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8113,7 +8113,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/azure",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8152,7 +8152,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/analista",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8191,7 +8191,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/analista-programador",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8230,7 +8230,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/arquitecto-tic",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8269,7 +8269,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/base-de-datos-dba",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8308,7 +8308,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/big-data",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8347,7 +8347,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/ciberseguridad",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8386,7 +8386,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/consultor",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8425,7 +8425,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/desarrollador-web",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8466,7 +8466,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/devops",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8505,7 +8505,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/electronica",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8544,7 +8544,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/teletrabajo",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -8585,7 +8585,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-07-12T08:30:55Z",
+      "publishedAt": "2026-07-12T13:55:24Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/programador/java",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
