@@ -37,7 +37,7 @@ def test_no_mock_fallback_when_use_mock_false(monkeypatch):
     assert "No se obtuvieron ofertas reales" in report["error"]
 
 
-def test_mock_fallback_only_when_use_mock_true(monkeypatch):
+def test_mock_fallback_is_never_used_for_publication(monkeypatch):
     config = {
         "use_mock": True,
         "sources": {"infojobs_html": True},
@@ -61,6 +61,6 @@ def test_mock_fallback_only_when_use_mock_true(monkeypatch):
     monkeypatch.setattr(exporter, "collect_real_sources", no_jobs)
     raw_jobs, report = exporter.load_raw_jobs(config, "2026-07-08T00:00:00Z")
 
-    assert raw_jobs
-    assert report["mockFallbackUsed"] is True
-    assert report["mockFallbackReason"]
+    assert raw_jobs == []
+    assert report["mockFallbackUsed"] is False
+    assert report["mockDisabledReason"]

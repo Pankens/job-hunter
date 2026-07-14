@@ -40,7 +40,10 @@ def test_accepts_technical_vue_typescript_offer(make_job, rules):
     result = classify_job(
         make_job(
             title="Frontend Developer Vue",
-            description="Desarrollo de interfaces web con Vue 3 y TypeScript.",
+            description=(
+                "Desarrollo de interfaces web modernas con Vue 3 y TypeScript, "
+                "colaborando con producto, diseno y backend en un equipo tecnico."
+            ),
             requirements="Vue, TypeScript, HTML y CSS.",
         ),
         rules,
@@ -48,7 +51,7 @@ def test_accepts_technical_vue_typescript_offer(make_job, rules):
 
     assert result["status"] == "valid"
     assert result["type"] == "technical"
-    assert {"vue", "typescript"}.issubset(result["matched_skills"])
+    assert "frontend" in result["matched_skills"]
     assert result["reject_reasons"] == []
     assert result["match_reasons"]
     assert isinstance(result["warnings"], list)
@@ -60,7 +63,65 @@ def test_accepts_general_offer_without_red_flags(make_job, rules):
     assert result["status"] == "valid"
     assert result["type"] == "general"
     assert result["reject_reasons"] == []
-    assert "Oferta general" in " ".join(result["match_reasons"])
+    assert "perfil general" in " ".join(result["match_reasons"])
+
+
+def test_rejects_offer_outside_configured_profiles(make_job, rules):
+    result = classify_job(
+        make_job(
+            title="Account Executive",
+            description=(
+                "Manage enterprise prospects, coordinate sales cycles, negotiate contracts "
+                "and report pipeline progress to revenue leadership every week."
+            ),
+            requirements="Sales experience and pipeline management.",
+        ),
+        rules,
+    )
+
+    assert result["status"] == "rejected"
+    assert any("perfiles general o tecnico" in reason for reason in result["reject_reasons"])
+
+
+def test_rejects_navigation_like_job_without_company_description_or_direct_url(make_job, rules):
+    result = classify_job(
+        make_job(
+            title="Barcelona",
+            company="",
+            description="",
+            url="https://example.test/ofertas-trabajo/barcelona/dependiente",
+            direct_url=False,
+        ),
+        rules,
+    )
+
+    assert result["status"] == "rejected"
+    assert any("titulo de puesto" in reason for reason in result["reject_reasons"])
+    assert any("empresa no identificable" in reason for reason in result["reject_reasons"])
+    assert any("URL no parece" in reason for reason in result["reject_reasons"])
+    assert any("descripcion insuficiente" in reason for reason in result["reject_reasons"])
+
+
+def test_accepts_remote_technical_offer_with_real_company_and_description(make_job, rules):
+    result = classify_job(
+        make_job(
+            title="Frontend Engineer Vue",
+            company="Remote SaaS",
+            city="Remote",
+            location="Remote",
+            remote=True,
+            description=(
+                "Build Vue and TypeScript interfaces for a remote product team, "
+                "collaborating with design, backend engineers and customer support."
+            ),
+            requirements="Vue, TypeScript, HTML and CSS.",
+        ),
+        rules,
+    )
+
+    assert result["status"] == "valid"
+    assert result["type"] == "technical"
+    assert any("remota" in reason for reason in result["match_reasons"])
 
 
 def test_rejects_location_outside_allowed_cities(make_job, rules):

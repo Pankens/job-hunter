@@ -1,30 +1,28 @@
 # job-hunter
 
-Panel personal de ofertas de empleo construido con Vue 3 y datos JSON estáticos.
+Panel personal de ofertas de empleo construido con Vue 3 y datos JSON estaticos.
 
-La fuente principal de V1 son feeds/RSS públicos de búsqueda de InfoJobs. No hace
-falta `INFOJOBS_CLIENT_ID` ni `INFOJOBS_CLIENT_SECRET`. Si el feed falla o devuelve
-0 ofertas, el pipeline usa ofertas mock para mantener la web disponible. No realiza
-scraping de páginas de detalle.
+La obtencion de datos usa fuentes publicas reales con APIs JSON: Greenhouse Job
+Board API, Lever Postings API y Arbeitnow. Los collectors HTML quedan
+desactivados por defecto porque pueden mezclar enlaces de navegacion o categorias
+con ofertas reales.
 
-## Qué incluye
+## Que incluye
 
-- Panel principal con ofertas válidas y panel secundario de descartadas.
-- Filtros por antigüedad, ciudad, tipo y fuente.
+- Panel principal con ofertas validas y panel secundario de descartadas.
+- Filtros por antiguedad, ciudad, tipo y fuente.
 - Estado local de ofertas aplicadas y descartadas manualmente.
-- Pipeline Python para obtener RSS, normalizar, deduplicar, filtrar y exportar datos.
-- Fallback automático a datos mock.
-- Configuración editable de búsquedas y reglas de exclusión.
-- Automatizaciones de actualización y despliegue en GitHub Pages.
+- Pipeline Python para obtener APIs publicas, normalizar, deduplicar, validar calidad, filtrar y exportar datos.
+- Registro configurable de empresas y fuentes en `config/sources.json`.
+- Sin fallback mock de publicacion.
+- Reportes de ejecucion en `data/last_run_report.json` y `data/source-health.json`.
+- Automatizaciones de actualizacion y despliegue en GitHub Pages.
 
 ## Requisitos
 
 - Node.js 20 o superior.
 - npm 10 o superior.
 - Python 3.10 o superior.
-
-El pipeline usa solo la librería estándar de Python. Para ejecutar tests se instala
-únicamente pytest:
 
 ```bash
 python -m pip install -r requirements-dev.txt
@@ -33,7 +31,7 @@ python -m pytest -q
 
 ## Desarrollo local
 
-La app está dentro de `web/`:
+La app esta dentro de `web/`:
 
 ```bash
 cd web
@@ -41,76 +39,74 @@ npm install
 npm run dev
 ```
 
-Vite mostrará la URL local, normalmente `http://localhost:5173`.
-
 Para generar el JSON que consume la web:
 
 ```bash
 python scripts/export_jobs.py
 ```
 
-La salida se escribe en `web/src/data/jobs.json`. Consulta
-[`docs/SOURCES.md`](docs/SOURCES.md) para detalles de la fuente InfoJobs RSS.
-El fallback está en `data/mock/source_jobs.json`.
+La salida se escribe en `web/src/data/jobs.json`.
 
 ## Comandos
 
-| Comando | Acción |
+| Comando | Accion |
 | --- | --- |
 | `cd web && npm run dev` | Inicia el frontend en modo desarrollo |
-| `cd web && npm run build` | Genera la web de producción en `web/dist/` |
-| `cd web && npm run preview` | Previsualiza el build |
-| `python scripts/export_jobs.py` | Ejecuta el pipeline InfoJobs RSS → JSON, con fallback mock |
+| `cd web && npm run build` | Genera la web de produccion en `web/dist/` |
+| `python scripts/export_jobs.py` | Ejecuta el pipeline de fuentes reales |
 
 ## Pipeline de datos
 
 ```text
-InfoJobs RSS o data/mock/source_jobs.json
-        ↓ normalizar
-        ↓ deduplicar
-        ↓ aplicar config/filter_rules.json
+Greenhouse / Lever / Arbeitnow
+        -> normalizar
+        -> deduplicar
+        -> control de calidad
+        -> aplicar config/filter_rules.json
 web/src/data/jobs.json
 ```
 
-El RSS puede traer fechas RFC 2822 o ISO; el normalizador las convierte a UTC. Los
-valores `published_hours_ago` del fallback se convierten en fechas ISO relativas al
-momento de exportación.
+Cada oferta valida debe tener titulo real, empresa, URL directa a una oferta
+individual, ubicacion o modalidad remota y descripcion suficiente para aplicar
+filtros. `publishedAt` queda en `null` si la fuente no proporciona fecha de
+publicacion; `firstSeenAt` indica cuando el pipeline vio la oferta.
 
-Los módulos están separados por responsabilidad:
+Las rechazadas siguen presentes en el JSON para alimentar el panel secundario,
+con `reject_reasons`, `match_reasons`, `warnings` y `matched_skills`.
 
-- `scripts/sources/infojobs.py`: consulta y adapta feeds/RSS públicos de InfoJobs.
-- `scripts/normalize.py`: transforma fuentes heterogéneas al modelo común.
-- `scripts/deduplicate.py`: elimina duplicados por fuente/id y huella de contenido.
-- `scripts/filter_jobs.py`: clasifica ofertas y registra motivos de descarte.
-- `scripts/export_jobs.py`: coordina el pipeline, muestra logs y escribe el JSON final.
+## Fuentes
 
-Cada oferta exportada incluye `status`, `reject_reasons`, `match_reasons`,
-`warnings` y `matched_skills`. Las rechazadas siguen presentes en el JSON para
-alimentar el panel secundario.
+`config/sources.json` contiene el registro activo:
 
-`config/filter_rules.json` contiene ubicaciones, términos excluidos, habilidades y
-la regla de comisiones. `config/searches.json` define ciudades, consultas RSS y
-fuentes activas.
+- `greenhouse`: tableros corporativos Greenhouse, por ejemplo GitLab, Mozilla, Okta y Cloudflare.
+- `lever`: tableros corporativos Lever, actualmente Wealthfront.
+- `arbeitnow`: API publica sin clave para empleo tecnico/remoto.
+- `*_html`: conservados para depuracion, pero apagados por defecto.
+
+Si una fuente falla, el error queda en `data/source-health.json` y las demas
+fuentes siguen publicando resultados. Si todas fallan, se publica un estado vacio
+real; nunca se publican mocks.
+
+## Perfiles y exclusiones
+
+Se mantienen dos perfiles:
+
+- general: tienda, atencion al cliente, administracion, almacen, limpieza y hosteleria.
+- tecnico: desarrollo, IT y diseno.
+
+Tambien se conservan las exclusiones de autonomo, venta fria/calle, carnet o
+vehiculo obligatorio, discapacidad obligatoria, practicas, idiomas obligatorios
+distintos de espanol/ingles y solo comisiones sin fijo suficiente.
 
 ## Estado local
 
 Las acciones **Marcar como aplicada** y **Descartar manualmente** se guardan en
-`localStorage` bajo la clave `job-hunter:user-state:v1`. Son privadas del navegador:
-no se sincronizan ni se publican en el repositorio.
+`localStorage` bajo la clave `job-hunter:user-state:v1`. Son privadas del navegador.
 
 ## GitHub Actions
 
-- `update-jobs.yml`: ejecución manual y cada seis horas. Consulta InfoJobs RSS, usa
-  fallback mock si es necesario y solo crea un commit si cambia `jobs.json`.
+- `update-jobs.yml`: ejecucion manual y cada seis horas. Consulta fuentes reales,
+  escribe `jobs.json`, `last_run_report.json` y `source-health.json`, y solo crea
+  commit si cambian.
 - `deploy-pages.yml`: compila y publica la web en GitHub Pages al actualizar `main`
-  o mediante ejecución manual.
-
-Para desplegar, selecciona **GitHub Actions** como origen en
-**Settings → Pages → Build and deployment**. Si el repositorio no se llama
-`job-hunter`, el workflow calcula automáticamente la ruta base a partir de su nombre.
-
-## Alcance
-
-InfoJobs está implementado mediante RSS/feed público. La API oficial queda como
-opción futura, pero no es requisito de V1. Indeed todavía no está implementado y
-LinkedIn queda fuera del alcance, tanto por scraping como por importación manual.
+  o mediante ejecucion manual.

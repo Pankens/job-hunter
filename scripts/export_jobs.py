@@ -1,4 +1,4 @@
-"""Genera el JSON estático desde collectors HTML públicos o mock explícito."""
+"""Generate the static jobs JSON from real public sources only."""
 
 from __future__ import annotations
 
@@ -17,11 +17,11 @@ from scripts.deduplicate import deduplicate_jobs
 from scripts.filter_jobs import filter_jobs
 from scripts.normalize import normalize_jobs
 
-MOCK_INPUT = ROOT / "data" / "mock" / "source_jobs.json"
 RULES_INPUT = ROOT / "config" / "filter_rules.json"
 SOURCES_INPUT = ROOT / "config" / "sources.json"
 OUTPUT = ROOT / "web" / "src" / "data" / "jobs.json"
 REPORT_OUTPUT = ROOT / "data" / "last_run_report.json"
+SOURCE_HEALTH_OUTPUT = ROOT / "data" / "source-health.json"
 
 
 def read_json(path: Path) -> Any:
@@ -46,7 +46,7 @@ def _empty_report(config: dict[str, Any], generated_at: str, error: str) -> dict
 
 
 def load_raw_jobs(config: dict[str, Any], generated_at: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Carga fuentes reales. Mock solo existe en modo explícito de desarrollo."""
+    """Load real sources. Mocks are never published."""
     try:
         raw_jobs, report = collect_real_sources(config)
     except Exception as error:
@@ -57,15 +57,30 @@ def load_raw_jobs(config: dict[str, Any], generated_at: str) -> tuple[list[dict[
     if raw_jobs:
         return raw_jobs, report
 
-    if config.get("use_mock"):
-        print("USANDO MOCK FALLBACK")
-        report["mockFallbackUsed"] = True
-        report["mockFallbackReason"] = "No se obtuvieron ofertas reales y use_mock=true"
-        return read_json(MOCK_INPUT), report
-
     report["mockFallbackUsed"] = False
-    report["error"] = report.get("error") or "No se obtuvieron ofertas reales de fuentes públicas"
+    if config.get("use_mock"):
+        report["mockDisabledReason"] = "Los mocks estan desactivados para publicacion"
+    report["error"] = report.get("error") or "No se obtuvieron ofertas reales de fuentes publicas"
     return [], report
+
+
+def build_source_health(report: dict[str, Any], generated_at: str) -> dict[str, Any]:
+    sources: dict[str, Any] = {}
+    for name, source_report in report.get("sourceReports", {}).items():
+        errors = source_report.get("errors", [])
+        raw_jobs = int(source_report.get("rawJobs", 0) or 0)
+        sources[name] = {
+            "ok": raw_jobs > 0 and not errors,
+            "rawJobs": raw_jobs,
+            "errors": errors,
+            "skipped": bool(source_report.get("skipped", False)),
+            "skipReason": source_report.get("skipReason"),
+        }
+    return {
+        "generatedAt": generated_at,
+        "activeSources": report.get("activeSources", []),
+        "sources": sources,
+    }
 
 
 def export_jobs() -> dict[str, Any]:
@@ -83,7 +98,7 @@ def export_jobs() -> dict[str, Any]:
         ],
     )
     jobs = filter_jobs(unique, rules)
-    jobs.sort(key=lambda job: job["publishedAt"], reverse=True)
+    jobs.sort(key=lambda job: job.get("publishedAt") or job.get("firstSeenAt") or "", reverse=True)
 
     valid_count = sum(job["valid"] for job in jobs)
     discarded_count = sum(not job["valid"] for job in jobs)
@@ -102,18 +117,18 @@ def export_jobs() -> dict[str, Any]:
         }
     )
 
-    mode = "mock-fallback" if last_run_report.get("mockFallbackUsed") else "live"
-    if not jobs and not last_run_report.get("mockFallbackUsed"):
-        mode = "empty-real-run"
+    mode = "live" if jobs else "empty-real-run"
+    source_health = build_source_health(last_run_report, generated_at)
 
     payload = {
-        "schemaVersion": 3,
+        "schemaVersion": 4,
         "generatedAt": generated_at,
         "mode": mode,
-        "isMock": bool(last_run_report.get("mockFallbackUsed", False)),
-        "hasRealData": bool(raw_jobs) and not last_run_report.get("mockFallbackUsed", False),
+        "isMock": False,
+        "hasRealData": bool(raw_jobs),
         "emptyReason": None if jobs else last_run_report.get("error"),
         "lastRunReport": last_run_report,
+        "sourceHealth": source_health,
         "summary": {
             "input": len(raw_jobs),
             "total": len(jobs),
@@ -129,6 +144,7 @@ def export_jobs() -> dict[str, Any]:
         json.dump(payload, file, ensure_ascii=False, indent=2)
         file.write("\n")
     write_report(REPORT_OUTPUT, last_run_report)
+    write_report(SOURCE_HEALTH_OUTPUT, source_health)
     return payload
 
 
@@ -136,15 +152,14 @@ if __name__ == "__main__":
     result = export_jobs()
     report = result["lastRunReport"]
     summary = result["summary"]
-    print(f"Número normalizadas: {report['normalized']}")
-    print(f"Número deduplicadas: {report['deduplicated']}")
-    print(f"Número válidas: {summary['valid']}")
-    print(f"Número descartadas: {summary['discarded']}")
-    if result["isMock"]:
-        print("USANDO MOCK FALLBACK")
+    print(f"Numero normalizadas: {report['normalized']}")
+    print(f"Numero deduplicadas: {report['deduplicated']}")
+    print(f"Numero validas: {summary['valid']}")
+    print(f"Numero descartadas: {summary['discarded']}")
     if result["mode"] == "empty-real-run":
         print(f"SIN OFERTAS REALES: {result['emptyReason']}")
     for source, count in report.get("sourceCounts", {}).items():
         print(f"Resumen fuente {source}: {count} ofertas raw")
-    print(f"Exportación {result['mode']} completada -> {OUTPUT.relative_to(ROOT)}")
-    print(f"Reporte de ejecución -> {REPORT_OUTPUT.relative_to(ROOT)}")
+    print(f"Exportacion {result['mode']} completada -> {OUTPUT.relative_to(ROOT)}")
+    print(f"Reporte de ejecucion -> {REPORT_OUTPUT.relative_to(ROOT)}")
+    print(f"Salud de fuentes -> {SOURCE_HEALTH_OUTPUT.relative_to(ROOT)}")

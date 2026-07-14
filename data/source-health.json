@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-07-14T11:16:35Z",
+  "activeSources": [
+    "greenhouse",
+    "lever",
+    "arbeitnow"
+  ],
+  "sources": {
+    "greenhouse": {
+      "ok": true,
+      "rawJobs": 835,
+      "errors": [],
+      "skipped": false,
+      "skipReason": null
+    },
+    "lever": {
+      "ok": true,
+      "rawJobs": 13,
+      "errors": [],
+      "skipped": false,
+      "skipReason": null
+    },
+    "arbeitnow": {
+      "ok": true,
+      "rawJobs": 100,
+      "errors": [],
+      "skipped": false,
+      "skipReason": null
+    }
+  }
+}

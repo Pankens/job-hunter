@@ -29,13 +29,17 @@ def make_job():
             "company": "Empresa de prueba",
             "city": "Valencia",
             "location": "Valencia capital",
-            "description": "Gestión de documentación y atención al cliente.",
-            "requirements": "Organización y manejo de herramientas ofimáticas.",
-            "salary_text": "1.300 € brutos/mes",
+            "description": (
+                "Gestion de documentacion, atencion al cliente, archivo de contratos "
+                "y coordinacion diaria con el equipo administrativo."
+            ),
+            "requirements": "Organizacion y manejo de herramientas ofimaticas.",
+            "salary_text": "1.300 EUR brutos/mes",
             "salary_base_eur_month": 1300,
             "has_commission": False,
-            "published_hours_ago": 2,
-            "url": "https://example.test/job",
+            "published_at": "2026-07-01T00:00:00Z",
+            "url": "https://example.test/job/test-job",
+            "direct_url": True,
         }
         raw.update(overrides)
         return normalize_job(raw, datetime(2026, 7, 1, tzinfo=timezone.utc))

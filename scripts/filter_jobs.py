@@ -6,6 +6,7 @@ import re
 from typing import Any
 
 from scripts.normalize import comparable_text
+from scripts.quality import quality_reject_reasons
 
 
 REASON_LABELS = {
@@ -100,17 +101,22 @@ def classify_job(job: dict[str, Any], rules: dict[str, Any]) -> dict[str, Any]:
     match_reasons: list[str] = []
     warnings: list[str] = []
     warnings.extend(job.get("sourceWarnings", job.get("source_warnings", [])) or [])
+    reject_reasons.extend(quality_reject_reasons(job))
 
     accepted_cities = {
         comparable_text(city): city for city in rules["accepted_cities"]
     }
     normalized_city = comparable_text(job.get("city", ""))
-    if normalized_city not in accepted_cities:
+    location_text = comparable_text(f"{job.get('city', '')} {job.get('location', '')}")
+    is_remote = bool(job.get("remote")) or "remote" in location_text or "teletrabajo" in location_text
+    if normalized_city in accepted_cities:
+        match_reasons.append(f"Ubicación admitida: {accepted_cities[normalized_city]}")
+    elif bool(rules.get("accept_remote", True)) and is_remote:
+        match_reasons.append("Modalidad remota admitida")
+    else:
         reject_reasons.append(
             f"Ubicación no admitida: {job.get('city') or 'no indicada'}"
         )
-    else:
-        match_reasons.append(f"Ubicación admitida: {accepted_cities[normalized_city]}")
 
     for group, terms in rules["rejected_terms"].items():
         matched = [term for term in terms if contains_term(searchable, term)]
@@ -138,8 +144,17 @@ def classify_job(job: dict[str, Any], rules: dict[str, Any]) -> dict[str, Any]:
     match_reasons.extend(commission_matches)
     warnings.extend(commission_warnings)
 
+    title_text = comparable_text(job.get("title", ""))
+    non_profile_title_terms = [
+        "account executive",
+        "sales",
+        "business development",
+        "commercial",
+    ]
+    if any(contains_term(title_text, term) for term in non_profile_title_terms):
+        reject_reasons.append("No coincide con los perfiles general o tecnico configurados")
     matched_skills = [
-        term for term in rules["technical_terms"] if contains_term(searchable, term)
+        term for term in rules["technical_terms"] if contains_term(title_text, term)
     ]
     job_type = "technical" if matched_skills else "general"
     if matched_skills:
@@ -147,7 +162,15 @@ def classify_job(job: dict[str, Any], rules: dict[str, Any]) -> dict[str, Any]:
             f"Coincide con el perfil técnico: {', '.join(matched_skills[:5])}"
         )
     else:
-        match_reasons.append("Oferta general sin requisitos técnicos específicos")
+        matched_general_terms = [
+            term for term in rules.get("general_terms", []) if contains_term(title_text, term)
+        ]
+        if matched_general_terms:
+            match_reasons.append(
+                f"Coincide con el perfil general: {', '.join(matched_general_terms[:5])}"
+            )
+        else:
+            reject_reasons.append("No coincide con los perfiles general o tecnico configurados")
 
     if job.get("source") == "indeed":
         warnings.append("Indeed está configurada como fuente experimental")

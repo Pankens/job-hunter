@@ -13,6 +13,9 @@ const timeOptions = [
 ]
 const cities = ['Valencia', 'Paterna', 'Burjassot']
 const sourceLabels = {
+  greenhouse: 'Greenhouse',
+  lever: 'Lever',
+  arbeitnow: 'Arbeitnow',
   infojobs: 'InfoJobs',
   indeed: 'Indeed',
   tecnoempleo: 'Tecnoempleo',
@@ -60,7 +63,8 @@ function sourceLabel(source) {
 }
 
 function isVisibleByFilters(job) {
-  const ageHours = (Date.now() - new Date(job.publishedAt)) / 3_600_000
+  const referenceDate = job.publishedAt || job.firstSeenAt || jobsData.generatedAt
+  const ageHours = (Date.now() - new Date(referenceDate)) / 3_600_000
   return (
     ageHours <= filters.maxHours &&
     (!filters.cities.length || filters.cities.includes(job.city)) &&

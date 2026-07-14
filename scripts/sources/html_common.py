@@ -84,6 +84,8 @@ def make_raw_job(
     salary_text: str = "",
     description: str = "",
     source_id: str = "",
+    remote: bool = False,
+    direct_url: bool = False,
     warnings: Iterable[str] = (),
 ) -> dict[str, Any]:
     title = compact_text(title)
@@ -110,6 +112,7 @@ def make_raw_job(
         "company": company,
         "city": city,
         "location": location,
+        "remote": remote,
         "description": description,
         "requirements": description,
         "required_languages": [],
@@ -118,6 +121,7 @@ def make_raw_job(
         "has_commission": "comision" in comparable_text(f"{title} {description} {salary_text}"),
         "published_at": published_at,
         "url": url,
+        "direct_url": direct_url,
         "source_warnings": list(dict.fromkeys([*warnings, *missing_warnings])),
         "raw_type_hint": infer_type(query, title, description),
     }

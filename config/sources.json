@@ -1,14 +1,48 @@
 {
   "use_mock": false,
   "sources": {
-    "infojobs_html": true,
-    "indeed_html": true,
-    "tecnoempleo_html": true,
-    "generic_html": true
+    "greenhouse": true,
+    "lever": true,
+    "arbeitnow": true,
+    "infojobs_html": false,
+    "indeed_html": false,
+    "tecnoempleo_html": false,
+    "generic_html": false
+  },
+  "html_collectors": {
+    "enabled": false,
+    "reason": "Disabled by default because HTML search pages can mix navigation/category links with real jobs."
+  },
+  "source_registry": {
+    "greenhouse": {
+      "enabled": true,
+      "kind": "greenhouse_job_board_api",
+      "timeout_seconds": 20,
+      "companies": [
+        { "name": "GitLab", "board": "gitlab", "enabled": true },
+        { "name": "Mozilla", "board": "mozilla", "enabled": true },
+        { "name": "Okta", "board": "okta", "enabled": true },
+        { "name": "Cloudflare", "board": "cloudflare", "enabled": true }
+      ]
+    },
+    "lever": {
+      "enabled": true,
+      "kind": "lever_postings_api",
+      "timeout_seconds": 20,
+      "companies": [
+        { "name": "Wealthfront", "company": "wealthfront", "enabled": true }
+      ]
+    },
+    "arbeitnow": {
+      "enabled": true,
+      "kind": "public_remote_technical_api",
+      "timeout_seconds": 20,
+      "max_pages": 1
+    }
   },
   "max_pages_per_query": 1,
-  "delay_seconds": 3,
-  "use_playwright": true,
+  "delay_seconds": 0,
+  "use_playwright": false,
   "locations": [
     "Valencia",
     "Paterna",
@@ -18,13 +52,13 @@
     "dependiente",
     "cajero",
     "reponedor",
-    "mozo almacén",
+    "mozo almacen",
     "auxiliar administrativo",
-    "atención al cliente",
+    "atencion al cliente",
     "recepcionista",
     "operario",
     "limpieza",
-    "hostelería"
+    "hosteleria"
   ],
   "technical_queries": [
     "programador",
@@ -43,8 +77,8 @@
     "Figma",
     "MongoDB",
     "MySQL",
-    "diseño web",
-    "informático",
-    "soporte técnico"
+    "diseno web",
+    "informatico",
+    "soporte tecnico"
   ]
 }

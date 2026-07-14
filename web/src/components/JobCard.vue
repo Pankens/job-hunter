@@ -10,14 +10,23 @@ const props = defineProps({
 defineEmits(['toggle-applied', 'discard'])
 
 const publishedLabel = computed(() => {
-  const hours = Math.max(1, Math.round((Date.now() - new Date(props.job.publishedAt)) / 3_600_000))
-  if (hours < 24) return `Hace ${hours} h`
+  const referenceDate = props.job.publishedAt || props.job.firstSeenAt
+  const prefix = props.job.publishedAt ? 'Hace' : 'Vista hace'
+  const hours = Math.max(1, Math.round((Date.now() - new Date(referenceDate)) / 3_600_000))
+  if (hours < 24) return `${prefix} ${hours} h`
   const days = Math.round(hours / 24)
-  return `Hace ${days} ${days === 1 ? 'día' : 'días'}`
+  return `${prefix} ${days} ${days === 1 ? 'día' : 'días'}`
 })
 
 const sourceLabel = computed(() => {
-  const labels = { infojobs: 'InfoJobs', indeed: 'Indeed', mock: 'Mock' }
+  const labels = {
+    greenhouse: 'Greenhouse',
+    lever: 'Lever',
+    arbeitnow: 'Arbeitnow',
+    infojobs: 'InfoJobs',
+    indeed: 'Indeed',
+    mock: 'Mock',
+  }
   return labels[props.job.source] || props.job.source
 })
 </script>
