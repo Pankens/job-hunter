@@ -1,12 +1,12 @@
 {
   "schemaVersion": 3,
-  "generatedAt": "2026-09-13T16:15:08Z",
+  "generatedAt": "2026-09-13T20:48:17Z",
   "mode": "live",
   "isMock": false,
   "hasRealData": true,
   "emptyReason": null,
   "lastRunReport": {
-    "generatedAt": "2026-09-13T16:15:08Z",
+    "generatedAt": "2026-09-13T20:48:17Z",
     "runMode": "github_actions",
     "mockEnabled": false,
     "activeSources": [
@@ -2371,7 +2371,7 @@
             "query": "Java",
             "city": "Valencia",
             "httpStatus": 200,
-            "htmlBytes": 156235,
+            "htmlBytes": 156244,
             "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>396 Ofertas Trabajo de Java - tecnoempleo</title> <meta name=\"description\" content=\"396 Ofertas de trabajo publicadas de Java en Informática y Telecomunicaciones - tecnoempleo\"> <me",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -2618,7 +2618,7 @@
             "query": "Java",
             "city": "Paterna",
             "httpStatus": 200,
-            "htmlBytes": 156233,
+            "htmlBytes": 156242,
             "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>396 Ofertas Trabajo de Java - tecnoempleo</title> <meta name=\"description\" content=\"396 Ofertas de trabajo publicadas de Java en Informática y Telecomunicaciones - tecnoempleo\"> <me",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -2865,7 +2865,7 @@
             "query": "Java",
             "city": "Burjassot",
             "httpStatus": 200,
-            "htmlBytes": 156237,
+            "htmlBytes": 156246,
             "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>396 Ofertas Trabajo de Java - tecnoempleo</title> <meta name=\"description\" content=\"396 Ofertas de trabajo publicadas de Java en Informática y Telecomunicaciones - tecnoempleo\"> <me",
             "candidatesDetected": 25,
             "rawJobs": 25,
@@ -3085,7 +3085,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3126,7 +3126,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/servicios-publicacion-ofertas.php",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3165,7 +3165,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/?urg=1",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3204,7 +3204,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/?te=programador&pagina=2",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3243,7 +3243,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/java",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3284,7 +3284,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/python",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3323,7 +3323,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/sql",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3362,7 +3362,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/aws",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3401,7 +3401,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/sap",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3440,7 +3440,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/angular",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3481,7 +3481,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/linux",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3520,7 +3520,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/javascript",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3561,7 +3561,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/azure",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3600,7 +3600,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/spring",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3639,7 +3639,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/analista",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3678,7 +3678,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/analista-programador",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3717,7 +3717,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/arquitecto-tic",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3756,7 +3756,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/base-de-datos-dba",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3795,7 +3795,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/big-data",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3834,7 +3834,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/ciberseguridad",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3873,7 +3873,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/consultor",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3912,7 +3912,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/desarrollador-web",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3953,7 +3953,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/devops",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -3992,7 +3992,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/electronica",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -4031,7 +4031,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/teletrabajo",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",
@@ -4072,7 +4072,7 @@
       "salaryText": "",
       "salaryBaseEurMonth": null,
       "hasCommission": false,
-      "publishedAt": "2026-09-13T16:15:08Z",
+      "publishedAt": "2026-09-13T20:48:17Z",
       "url": "https://www.tecnoempleo.com/ofertas-trabajo/programador/java",
       "sourceWarnings": [
         "Oferta detectada por enlace público de Tecnoempleo",

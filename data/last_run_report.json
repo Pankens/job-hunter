@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T16:15:08Z",
+  "generatedAt": "2026-09-13T20:48:17Z",
   "runMode": "github_actions",
   "mockEnabled": false,
   "activeSources": [
@@ -2364,7 +2364,7 @@
           "query": "Java",
           "city": "Valencia",
           "httpStatus": 200,
-          "htmlBytes": 156235,
+          "htmlBytes": 156244,
           "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>396 Ofertas Trabajo de Java - tecnoempleo</title> <meta name=\"description\" content=\"396 Ofertas de trabajo publicadas de Java en Informática y Telecomunicaciones - tecnoempleo\"> <me",
           "candidatesDetected": 25,
           "rawJobs": 25,
@@ -2611,7 +2611,7 @@
           "query": "Java",
           "city": "Paterna",
           "httpStatus": 200,
-          "htmlBytes": 156233,
+          "htmlBytes": 156242,
           "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>396 Ofertas Trabajo de Java - tecnoempleo</title> <meta name=\"description\" content=\"396 Ofertas de trabajo publicadas de Java en Informática y Telecomunicaciones - tecnoempleo\"> <me",
           "candidatesDetected": 25,
           "rawJobs": 25,
@@ -2858,7 +2858,7 @@
           "query": "Java",
           "city": "Burjassot",
           "httpStatus": 200,
-          "htmlBytes": 156237,
+          "htmlBytes": 156246,
           "preview": "<!DOCTYPE html> <html lang=\"es\" dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" > <head> <meta charset=\"utf-8\"/> <title>396 Ofertas Trabajo de Java - tecnoempleo</title> <meta name=\"description\" content=\"396 Ofertas de trabajo publicadas de Java en Informática y Telecomunicaciones - tecnoempleo\"> <me",
           "candidatesDetected": 25,
           "rawJobs": 25,
